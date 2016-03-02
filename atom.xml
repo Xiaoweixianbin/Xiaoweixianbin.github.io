@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>makerwei blog</title>
+  <subtitle>Android Python Developer</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-03-02T13:36:17.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>小小小maker_wei</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac上 Sublime Text 打造 Latex 中文环境</title>
+    <link href="http://yoursite.com/2016/02/05/latex/"/>
+    <id>http://yoursite.com/2016/02/05/latex/</id>
+    <published>2016-02-05T07:41:13.000Z</published>
+    <updated>2016-03-02T13:36:17.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;工欲善其事必先利其器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex。&lt;/p&gt;
+&lt;p&gt;Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行速度快，把它作为Latex的编辑器最好不过了&lt;/p&gt;
+&lt;h2 id=&quot;安装步骤&quot;&gt;&lt;a href=&quot;#安装步骤&quot; class=&quot;headerlink&quot; title=&quot;安装步骤&quot;&gt;&lt;/a&gt;安装步骤&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;下载&lt;a href=&quot;http://www.tug.org/mactex/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MacTex&lt;/a&gt;和&lt;a href=&quot;http://skim-app.sourceforge.net&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;skim&lt;/a&gt;并安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;首先安装Package Control&lt;br&gt; 从菜单 &lt;code&gt;View - Show Console&lt;/code&gt; 或者 &lt;code&gt;^ + ~&lt;/code&gt; 快捷键，调出 console。在里面输入以下代码&lt;/p&gt;
+&lt;p&gt; &lt;em&gt;Sublime Text 2&lt;/em&gt;&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import urllib2,os,hashlib; h = &amp;apos;2915d1851351e5ee549c20394736b442&amp;apos; + &amp;apos;8bc59f460fa1548d1514676163dafc88&amp;apos;; pf = &amp;apos;Package Control.sublime-package&amp;apos;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &amp;apos;http://packagecontrol.io/&amp;apos; + pf.replace(&amp;apos; &amp;apos;, &amp;apos;%20&amp;apos;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &amp;apos;wb&amp;apos; ).write(by) if dh == h else None; print(&amp;apos;Error validating download (got %s instead of %s), please try manual install&amp;apos; % (dh, h) if dh != h else &amp;apos;Please restart Sublime Text to finish installation&amp;apos;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; &lt;em&gt;Sublime Text 3&lt;/em&gt;&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import urllib.request,os,hashlib; h = &amp;apos;2915d1851351e5ee549c20394736b442&amp;apos; + &amp;apos;8bc59f460fa1548d1514676163dafc88&amp;apos;; pf = &amp;apos;Package Control.sublime-package&amp;apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;apos;http://packagecontrol.io/&amp;apos; + pf.replace(&amp;apos; &amp;apos;, &amp;apos;%20&amp;apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&amp;apos;Error validating download (got %s instead of %s), please try manual install&amp;apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &amp;apos;wb&amp;apos; ).write(by)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在Sublime Text里用快捷键&lt;code&gt;Command+Shift+P&lt;/code&gt;调出命令窗口，输入&lt;code&gt;Install Package&lt;/code&gt;，之后选择&lt;code&gt;LaTexTools&lt;/code&gt;安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;运行一下Skim，进入&lt;code&gt;选项——同步&lt;/code&gt;，在&lt;code&gt;PDF-Tex&lt;/code&gt;同步支持那里选择&lt;code&gt;自定义&lt;/code&gt;，输入&lt;code&gt;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&lt;/code&gt;，第二行不变。这样，当你在Sublime Text里修改tex文件时，Skim预览也会相应变更。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;中文环境&lt;/p&gt;
+&lt;p&gt; 打开终端，输入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo tlmgr update --self
+sudo tlmgr install latexm
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 然后在Sublime Text的&lt;code&gt;Preferences -- Package Settings —— LaTeXTools —— settings-User&lt;/code&gt;重建配置文件,在&lt;code&gt;builder-settings下&lt;/code&gt;面新增两项配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;program&amp;quot; : &amp;quot;xelatex&amp;quot;,
+&amp;quot;command&amp;quot; : [&amp;quot;latexmk&amp;quot;, &amp;quot;-cd&amp;quot;, &amp;quot;-e&amp;quot;, &amp;quot;$pdflatex = &amp;apos;xelatex -interaction=nonstopmode -synctex=1 %S %O&amp;apos;&amp;quot;, &amp;quot;-f&amp;quot;, &amp;quot;-pdf&amp;quot;],
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;另外注意之前应该有&lt;code&gt;&amp;quot;builder&amp;quot;: &amp;quot;default&amp;quot;&lt;/code&gt;（或直接设置为空或”traditional”）。&lt;/p&gt;
+&lt;p&gt;最后新建一个test.tex文件，输入以下测试代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;\documentclass&amp;#123;article&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\usepackage&amp;#123;fontspec, xunicode, xltxtra&amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\setmainfont&amp;#123;Hiragino Sans GB&amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\title&amp;#123;Title&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\author&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\begin&amp;#123;document&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\maketitle&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\section&amp;#123;Introduction&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;This is where you will write your content. 在这里写上内容。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\end&amp;#123;document&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后&lt;code&gt;command+B&lt;/code&gt;编译，若没出错，就会出现pdf文档&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;工欲善其事必先利其器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex
+    
+    </summary>
+    
+      <category term="鼓捣" scheme="http://yoursite.com/categories/%E9%BC%93%E6%8D%A3/"/>
+    
+    
+      <category term="Latex" scheme="http://yoursite.com/tags/Latex/"/>
+    
+      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+github pages/gitcafe pages搭建自己的blog</title>
+    <link href="http://yoursite.com/2016/02/03/hexo/"/>
+    <id>http://yoursite.com/2016/02/03/hexo/</id>
+    <published>2016-02-03T13:13:25.000Z</published>
+    <updated>2016-03-02T13:36:17.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;什么是Hexo？&quot;&gt;&lt;a href=&quot;#什么是Hexo？&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo？&quot;&gt;&lt;/a&gt;什么是Hexo？&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Hexo&lt;/code&gt; 是一个快速、简洁且高效的博客框架。通过它，我们可以快速的搭建自己的bolg并托管到github上。踩了几个坑，我成功的将blog同时部署到github和gitcafe上。&lt;/p&gt;
+&lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;p&gt;检查电脑中是否有以下程序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Node.js&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装完以上程序，然后通过&lt;code&gt;npm install -g hexo&lt;/code&gt;即安装好Hexo，然后执行以下命令，Hexo会在指定文件夹中新建所需要的文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hexo init &amp;lt;folder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd &amp;lt;folder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;本地预览&quot;&gt;&lt;a href=&quot;#本地预览&quot; class=&quot;headerlink&quot; title=&quot;本地预览&quot;&gt;&lt;/a&gt;本地预览&lt;/h2&gt;&lt;p&gt;切换到目标文件夹，执行命令&lt;code&gt;hexo generate&lt;/code&gt;，则会生成静态文件。输入&lt;code&gt;hexo server&lt;/code&gt; 开启本地服务。在浏览器中输入以下网址&lt;code&gt;http://localhost:4000/&lt;/code&gt; 则可以在本地预览。&lt;/p&gt;
+&lt;h2 id=&quot;配置github和gitcafe&quot;&gt;&lt;a href=&quot;#配置github和gitcafe&quot; class=&quot;headerlink&quot; title=&quot;配置github和gitcafe&quot;&gt;&lt;/a&gt;配置github和gitcafe&lt;/h2&gt;&lt;p&gt;两者用法基本一样，都是新建一个仓库，github上仓库名必须为&lt;code&gt;你的用户名.github.io&lt;/code&gt;，gitcafe上仓库名为你的用户名就行了，但git的分支为&lt;code&gt;gitcafe-pages&lt;/code&gt;，然后编辑目标文件里的&lt;code&gt;_config.yml&lt;/code&gt;文件如下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  - type: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    repository: https://github.com/Username/Username.github.io.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    branch: master&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  - type: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    repository: https://gitcafe.com/Username/Username.io.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    branch: gitcafe-pages&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Hexo可以使用多个deployerHe，Hexo会依照顺序执行每个deployer。记住每个冒号后面都有个空格，要不然部署时会报错。执行命令&lt;code&gt;hexo deploy&lt;/code&gt;，你就可以在浏览器中输入&lt;code&gt;http://Username.gitcafe.io&lt;/code&gt;或者&lt;code&gt;http://Username.github.io&lt;/code&gt;就行了。&lt;/p&gt;
+&lt;p&gt;如果报错为&lt;br&gt;&lt;code&gt;ERROR Deployer not found: git&lt;/code&gt;，我的情况是执行命令&lt;code&gt;npm install hexo-deployer-git --save&lt;/code&gt; 就解决了。&lt;/p&gt;
+&lt;p&gt;更多资料请参考&lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo官方文档&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是Hexo？&quot;&gt;&lt;a href=&quot;#什么是Hexo？&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo？&quot;&gt;&lt;/a&gt;什么是Hexo？&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Hexo&lt;/code&gt; 是一个快速、简洁且高效的博客框架。通过它，我们可以快速的
+    
+    </summary>
+    
+      <category term="鼓捣" scheme="http://yoursite.com/categories/%E9%BC%93%E6%8D%A3/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="github pages" scheme="http://yoursite.com/tags/github-pages/"/>
+    
+      <category term="gitcafe pages" scheme="http://yoursite.com/tags/gitcafe-pages/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pelican + Github Pages 搭建自己的博客</title>
+    <link href="http://yoursite.com/2015/12/02/pelican/"/>
+    <id>http://yoursite.com/2015/12/02/pelican/</id>
+    <published>2015-12-02T08:13:08.000Z</published>
+    <updated>2016-03-02T13:36:17.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;pelican&quot;&gt;&lt;a href=&quot;#pelican&quot; class=&quot;headerlink&quot; title=&quot;pelican&quot;&gt;&lt;/a&gt;pelican&lt;/h2&gt;&lt;p&gt;Pelican是用python写的一套开源的静态网页生成项目，与当前很火的Jekyll很相似。不过作为一个python爱好者，Pelican更加让我喜欢。它评论使用Disqus，支持Markdown格式，支持代码高亮等功能。之前有使用Wordpress搭过blog。&lt;/p&gt;
+&lt;h2 id=&quot;Installation&quot;&gt;&lt;a href=&quot;#Installation&quot; class=&quot;headerlink&quot; title=&quot;Installation&quot;&gt;&lt;/a&gt;Installation&lt;/h2&gt;&lt;p&gt;&lt;code&gt;virtualenv&lt;/code&gt; 可用来用来建立一个虚拟的python环境，一个专属于项目的python环境。&lt;/p&gt;
+&lt;h3 id=&quot;激活环境&quot;&gt;&lt;a href=&quot;#激活环境&quot; class=&quot;headerlink&quot; title=&quot;激活环境&quot;&gt;&lt;/a&gt;激活环境&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install virtualenv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;virtualenv myblog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd myblog&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;source bin/activate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;安装Pelican&quot;&gt;&lt;a href=&quot;#安装Pelican&quot; class=&quot;headerlink&quot; title=&quot;安装Pelican&quot;&gt;&lt;/a&gt;安装Pelican&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone https://github.com/getpelican/pelican.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd pelican&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;python setup.py install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;创建blog&quot;&gt;&lt;a href=&quot;#创建blog&quot; class=&quot;headerlink&quot; title=&quot;创建blog&quot;&gt;&lt;/a&gt;创建blog&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd path(your blog&amp;apos;s path)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pelican-quickstart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在回答一系列的问题后就会自动生成你的blog，主要文件如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;path/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- content&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- output&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- Makefile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- develop_server.sh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- pelicanconf.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- publishconf.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;写一篇文章&quot;&gt;&lt;a href=&quot;#写一篇文章&quot; class=&quot;headerlink&quot; title=&quot;写一篇文章&quot;&gt;&lt;/a&gt;写一篇文章&lt;/h3&gt;&lt;p&gt;为了支持&lt;code&gt;Markdown&lt;/code&gt;，你首先还要通过&lt;code&gt;pip install Markdown&lt;/code&gt; 安装相关的包，然后在content目录下新建一个test.md文件，示例内容如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Title: My super title&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Date: 2010-12-03 10:20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Modified: 2010-12-05 19:30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Category: Python&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Tags: pelican, publishing&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Slug: my-super-post&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Authors: Alexis Metaireau, Conan Doyle&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Summary: Short version for index and feeds&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;This is the content of my super blog post.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后执行&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;make html&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./develop_server.sh start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这将开启一个测试服务器，可以通过&lt;code&gt;http://localhost:8000&lt;/code&gt;来查看blog的效果&lt;/p&gt;
+&lt;h3 id=&quot;使用Disqus第三方评论&quot;&gt;&lt;a href=&quot;#使用Disqus第三方评论&quot; class=&quot;headerlink&quot; title=&quot;使用Disqus第三方评论&quot;&gt;&lt;/a&gt;使用Disqus第三方评论&lt;/h3&gt;&lt;p&gt;在&lt;a href=&quot;https://disqus.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Disqus&lt;/a&gt;上申请一个站点，然后在&lt;code&gt;pelicanconf.py&lt;/code&gt;里添加或修改&lt;code&gt;DISQUS_SITENAME&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DISQUS_SITENAME = u&amp;quot;你的站点ID&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;make html
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后刷新&lt;code&gt;http://localhost:8000&lt;/code&gt;可以查看效果&lt;/p&gt;
+&lt;h3 id=&quot;主题&quot;&gt;&lt;a href=&quot;#主题&quot; class=&quot;headerlink&quot; title=&quot;主题&quot;&gt;&lt;/a&gt;主题&lt;/h3&gt;&lt;p&gt;Pelican也有一些主题可以下载，比如使用&lt;a href=&quot;https://github.com/alexandrevicenzi/Flex&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Flex&lt;/a&gt;这个主题。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone git://github.com/getpelican/pelican-themes.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后将你想要的主题拷贝进你博客项目的目录，然后在&lt;code&gt;pelicanconf.py&lt;/code&gt;文件中修改THEME为Flex&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;THEME = &amp;quot;Flex&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;make html
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;再打开&lt;code&gt;http://localhost:8000&lt;/code&gt;查看效果&lt;/p&gt;
+&lt;h3 id=&quot;使用插件&quot;&gt;&lt;a href=&quot;#使用插件&quot; class=&quot;headerlink&quot; title=&quot;使用插件&quot;&gt;&lt;/a&gt;使用插件&lt;/h3&gt;&lt;p&gt;在博客的目录中执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git://github.com/getpelican/pelican-plugins.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以配置&lt;code&gt;sitemap&lt;/code&gt;为例，在&lt;code&gt;pelicanconf.py&lt;/code&gt;的配置文件里添加以下配置：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;SITEMAP = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;apos;format&amp;apos;: &amp;apos;xml&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;apos;priorities&amp;apos;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;apos;articles&amp;apos;: 1,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;apos;pages&amp;apos;: 0.9,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;apos;indexes&amp;apos;: 0.8,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;apos;changefreqs&amp;apos;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;apos;indexes&amp;apos;: &amp;apos;daily&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;apos;articles&amp;apos;: &amp;apos;daily&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;apos;pages&amp;apos;: &amp;apos;weekly&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后再执行&lt;code&gt;make html&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;打开&lt;code&gt;http://localhost:8000/sitemap.xml&lt;/code&gt;就可看到生成的Sitemap了。&lt;/p&gt;
+&lt;h2 id=&quot;Github-Pages&quot;&gt;&lt;a href=&quot;#Github-Pages&quot; class=&quot;headerlink&quot; title=&quot;Github Pages&quot;&gt;&lt;/a&gt;Github Pages&lt;/h2&gt;&lt;p&gt;创建一个新的repository,并将其命名为&lt;code&gt;username.github.io&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h3&gt;&lt;p&gt;进入output目录，将生成好的静态HTML文件上传到你的&lt;code&gt;username.github.io&lt;/code&gt;中。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd output&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git remote add origin 远端地址&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit -m &amp;quot;first commit&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git push -u origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;等待一段时间你就可以访问&lt;code&gt;username.github.io&lt;/code&gt;看到网站效果。&lt;/p&gt;
+&lt;p&gt;若要使用独立域名，则要output当前目录新建一个&lt;code&gt;CNAME&lt;/code&gt;文件，里面写入你的域名（域名的指向等设置请自行查阅资料），然后上传到你的repository里就成功了。&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;更多的配置请参考&lt;a href=&quot;http://docs.getpelican.com/en/3.6.3/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;pelican&quot;&gt;&lt;a href=&quot;#pelican&quot; class=&quot;headerlink&quot; title=&quot;pelican&quot;&gt;&lt;/a&gt;pelican&lt;/h2&gt;&lt;p&gt;Pelican是用python写的一套开源的静态网页生成项目，与当前很火的Jekyll很相似。不过作
+    
+    </summary>
+    
+      <category term="鼓捣" scheme="http://yoursite.com/categories/%E9%BC%93%E6%8D%A3/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="pelican" scheme="http://yoursite.com/tags/pelican/"/>
+    
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+    
+  </entry>
+  
+</feed>
