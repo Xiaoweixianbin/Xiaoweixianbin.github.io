@@ -4,9 +4,9 @@
   <subtitle>Android Python Developer</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://blog.makerwei.me/"/>
   <updated>2016-03-02T13:36:17.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://blog.makerwei.me/</id>
   
   <author>
     <name>小小小maker_wei</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Mac上 Sublime Text 打造 Latex 中文环境</title>
-    <link href="http://yoursite.com/2016/02/05/latex/"/>
-    <id>http://yoursite.com/2016/02/05/latex/</id>
+    <link href="http://blog.makerwei.me/2016/02/05/latex/"/>
+    <id>http://blog.makerwei.me/2016/02/05/latex/</id>
     <published>2016-02-05T07:41:13.000Z</published>
     <updated>2016-03-02T13:36:17.000Z</updated>
     
@@ -64,19 +64,19 @@ sudo tlmgr install latexm
     
     </summary>
     
-      <category term="鼓捣" scheme="http://yoursite.com/categories/%E9%BC%93%E6%8D%A3/"/>
+      <category term="鼓捣" scheme="http://blog.makerwei.me/categories/%E9%BC%93%E6%8D%A3/"/>
     
     
-      <category term="Latex" scheme="http://yoursite.com/tags/Latex/"/>
+      <category term="Latex" scheme="http://blog.makerwei.me/tags/Latex/"/>
     
-      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
+      <category term="mac" scheme="http://blog.makerwei.me/tags/mac/"/>
     
   </entry>
   
   <entry>
     <title>Hexo+github pages/gitcafe pages搭建自己的blog</title>
-    <link href="http://yoursite.com/2016/02/03/hexo/"/>
-    <id>http://yoursite.com/2016/02/03/hexo/</id>
+    <link href="http://blog.makerwei.me/2016/02/03/hexo/"/>
+    <id>http://blog.makerwei.me/2016/02/03/hexo/</id>
     <published>2016-02-03T13:13:25.000Z</published>
     <updated>2016-03-02T13:36:17.000Z</updated>
     
@@ -102,21 +102,21 @@ sudo tlmgr install latexm
     
     </summary>
     
-      <category term="鼓捣" scheme="http://yoursite.com/categories/%E9%BC%93%E6%8D%A3/"/>
+      <category term="鼓捣" scheme="http://blog.makerwei.me/categories/%E9%BC%93%E6%8D%A3/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://blog.makerwei.me/tags/hexo/"/>
     
-      <category term="github pages" scheme="http://yoursite.com/tags/github-pages/"/>
+      <category term="github pages" scheme="http://blog.makerwei.me/tags/github-pages/"/>
     
-      <category term="gitcafe pages" scheme="http://yoursite.com/tags/gitcafe-pages/"/>
+      <category term="gitcafe pages" scheme="http://blog.makerwei.me/tags/gitcafe-pages/"/>
     
   </entry>
   
   <entry>
     <title>Pelican + Github Pages 搭建自己的博客</title>
-    <link href="http://yoursite.com/2015/12/02/pelican/"/>
-    <id>http://yoursite.com/2015/12/02/pelican/</id>
+    <link href="http://blog.makerwei.me/2015/12/02/pelican/"/>
+    <id>http://blog.makerwei.me/2015/12/02/pelican/</id>
     <published>2015-12-02T08:13:08.000Z</published>
     <updated>2016-03-02T13:36:17.000Z</updated>
     
@@ -164,14 +164,14 @@ sudo tlmgr install latexm
     
     </summary>
     
-      <category term="鼓捣" scheme="http://yoursite.com/categories/%E9%BC%93%E6%8D%A3/"/>
+      <category term="鼓捣" scheme="http://blog.makerwei.me/categories/%E9%BC%93%E6%8D%A3/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="http://blog.makerwei.me/tags/Python/"/>
     
-      <category term="pelican" scheme="http://yoursite.com/tags/pelican/"/>
+      <category term="pelican" scheme="http://blog.makerwei.me/tags/pelican/"/>
     
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+      <category term="blog" scheme="http://blog.makerwei.me/tags/blog/"/>
     
   </entry>
   
