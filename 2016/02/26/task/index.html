@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="android,OkHttp," />
+  <meta name="keywords" content="android,AsyncTask,异步," />
 
 
 
@@ -61,16 +61,16 @@
 
 
 
-<meta name="description" content="HTTP GET12345678910111213OkHttpClient client = new OkHttpClient();      Request request = new Request.Builder().url(&amp;quot;http://baidu.com&amp;quot;).build();      client.newCall(request).enqueue(new Call">
+<meta name="description" content="使用原因由于android UI主线程是不安全的，如果在子线程中进行更新UI的操作，就会抛出android.view.ViewRoot$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views的异常。而且UI主线程不能处理耗时的操作，例如访问网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OkHttp基本使用">
-<meta property="og:url" content="http://blog.makerwei.me/2016/02/26/OkHttp/index.html">
+<meta property="og:title" content="Android AsyncTask 使用总结">
+<meta property="og:url" content="http://blog.makerwei.me/2016/02/26/task/index.html">
 <meta property="og:site_name" content="makerwei blog">
-<meta property="og:description" content="HTTP GET12345678910111213OkHttpClient client = new OkHttpClient();      Request request = new Request.Builder().url(&amp;quot;http://baidu.com&amp;quot;).build();      client.newCall(request).enqueue(new Call">
-<meta property="og:updated_time" content="2016-03-14T07:52:59.000Z">
+<meta property="og:description" content="使用原因由于android UI主线程是不安全的，如果在子线程中进行更新UI的操作，就会抛出android.view.ViewRoot$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views的异常。而且UI主线程不能处理耗时的操作，例如访问网">
+<meta property="og:updated_time" content="2016-03-14T10:41:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OkHttp基本使用">
-<meta name="twitter:description" content="HTTP GET12345678910111213OkHttpClient client = new OkHttpClient();      Request request = new Request.Builder().url(&amp;quot;http://baidu.com&amp;quot;).build();      client.newCall(request).enqueue(new Call">
+<meta name="twitter:title" content="Android AsyncTask 使用总结">
+<meta name="twitter:description" content="使用原因由于android UI主线程是不安全的，如果在子线程中进行更新UI的操作，就会抛出android.view.ViewRoot$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views的异常。而且UI主线程不能处理耗时的操作，例如访问网">
 
 
 
@@ -88,7 +88,7 @@
   };
 </script>
 
-  <title> OkHttp基本使用 | makerwei blog </title>
+  <title> Android AsyncTask 使用总结 | makerwei blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -238,7 +238,7 @@
             
             
               
-                OkHttp基本使用
+                Android AsyncTask 使用总结
               
             
           </h1>
@@ -250,7 +250,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-26T16:28:19+08:00" content="2016-02-26">
+            <time itemprop="dateCreated" datetime="2016-02-26T18:39:19+08:00" content="2016-02-26">
               2016-02-26
             </time>
           </span>
@@ -280,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/26/OkHttp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/26/OkHttp/" itemprop="commentsCount"></span>
+                <a href="/2016/02/26/task/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/26/task/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -309,20 +309,42 @@
       
 
       
-        <h2 id="HTTP-GET"><a href="#HTTP-GET" class="headerlink" title="HTTP GET"></a>HTTP GET</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = new OkHttpClient();</span><br><span class="line">      Request request = new Request.Builder().url(&quot;http://baidu.com&quot;).build();</span><br><span class="line">      client.newCall(request).enqueue(new Callback() &#123;</span><br><span class="line">          @Override</span><br><span class="line">          public void onFailure(Request request, IOException e) &#123;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          @Override</span><br><span class="line">          public void onResponse(Response response) throws IOException &#123;</span><br><span class="line">              //Log.e(TAG, response.body().string());</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
-<li>Request是OkHttp中访问的请求，<code>Builder</code>是辅助类。Response即OkHttp中的响应。</li>
-<li>构造一个<code>Request</code>对象，设置好URL，还可以通过<code>Request.Builder</code>设置更多的参数。</li>
-<li><code>enqueue</code>是异步的请求，还有execute()方法直接返回Response。</li>
-<li><code>response.body()</code>返回ResponseBody类，可以通过string方法得到string类型数据。</li>
-<li>onResponse执行的线程<code>并不是UI线程</code>，所以要注意线程间通信问题。</li>
-</ol>
-<h2 id="HTTP-POST"><a href="#HTTP-POST" class="headerlink" title="HTTP POST"></a>HTTP POST</h2><h3 id="post提交键值对"><a href="#post提交键值对" class="headerlink" title="post提交键值对"></a>post提交键值对</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = new OkHttpClient();</span><br><span class="line">      RequestBody requestBody = new FormEncodingBuilder()</span><br><span class="line">              .add(&quot;name&quot;,&quot;xxx&quot;)</span><br><span class="line">              .add(&quot;ID&quot;,&quot;xxx&quot;)</span><br><span class="line">              .build();</span><br><span class="line">      Request request = new Request.Builder().url(&quot;http://xxxxxxx.com&quot;)</span><br><span class="line">              .post(requestBody)</span><br><span class="line">              .build();</span><br><span class="line">      client.newCall(request).enqueue(new Callback() &#123;</span><br><span class="line">          @Override</span><br><span class="line">          public void onFailure(Request request, IOException e) &#123;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          @Override</span><br><span class="line">          public void onResponse(Response response) throws IOException &#123;</span><br><span class="line">              Log.e(TAG, response.body().string());</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
-<ol>
-<li>先构造RequestBody，通过FormEncodingBuilder添加多个String键值对。</li>
-</ol>
-<h3 id="post提交Json数据"><a href="#post提交Json数据" class="headerlink" title="post提交Json数据"></a>post提交Json数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">final MediaType JSON = MediaType.parse(&quot;application/json; charset=utf-8&quot;);</span><br><span class="line">      OkHttpClient client = new OkHttpClient();</span><br><span class="line">      RequestBody requestBody = RequestBody.create(JSON,json);</span><br><span class="line">      Request request = new Request.Builder().url(&quot;http://xxxxxxx.com&quot;)</span><br><span class="line">              .post(requestBody)</span><br><span class="line">              .build();</span><br><span class="line">      client.newCall(request).enqueue(new Callback() &#123;</span><br><span class="line">          @Override</span><br><span class="line">          public void onFailure(Request request, IOException e) &#123;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          @Override</span><br><span class="line">          public void onResponse(Response response) throws IOException &#123;</span><br><span class="line">              Log.e(TAG, response.body().string());</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
-<p>具体参考<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0106/2275.html" target="_blank" rel="external">泡网OkHttp使用教程</a>，<a href="http://www.cnblogs.com/ct2011/p/3997368.html" target="_blank" rel="external">OkHttp使用进阶 译自OkHttp Github官方教程</a></p>
+        <h2 id="使用原因"><a href="#使用原因" class="headerlink" title="使用原因"></a>使用原因</h2><p>由于android UI主线程是不安全的，如果在子线程中进行更新UI的操作，就会抛出<code>android.view.ViewRoot$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views</code>的异常。而且UI主线程不能处理耗时的操作，例如访问网络或者查询数据库；一旦UI线程超过5s没有响应用户请求，就会出现ANR（“Application Not Responding”）错误。所以，在一些应用场景我们不得不采用android的异步消息处理机制。</p>
+<h2 id="AsyncTask（异步任务）"><a href="#AsyncTask（异步任务）" class="headerlink" title="AsyncTask（异步任务）"></a>AsyncTask（异步任务）</h2><p>AsyncTask是一个抽象类，我们使用它就要定义一个类来继承AsyncTask这个抽象类，并实现其中doInBackgroud方法。</p>
+<p>使用时我们为AsyncTask类指定3个泛型参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class XXXX extends AsyncTask&lt;Params, Progress, Result&gt;&#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Params</code> 启动任务时输入的参数类型</li>
+<li><code>Progress</code> 后台任务执行中返回给UI线程的执行进度值的类型</li>
+<li><code>Result</code> 后台任务完成后返回给UI线程的结果的类型</li>
+</ul>
+<p>若不指定的话，则都将写成Void，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AsyncTask &lt;Void, Void, Void&gt;</span><br></pre></td></tr></table></figure>
+<p>此外，当我们执行一个异步任务时，其会按照下面4个方法分别执行：</p>
+<ul>
+<li><code>onPreExecute()</code>：执行后台耗时操作前被调用，并且在UI线程中执行，通常我们在这个方法中完成一些初始化操作，例如弹出ProgressDialog。</li>
+<li><code>doInBackground(Params... params)</code>： 这个方法必须重写，在onPreExecute()方法执行完后执行，在这里面实现我们获取数据等一些耗时操作。</li>
+<li><code>onProgressUpdate(Progess... values)</code>： 这个方法是在UI线程中执行，在异步任务中，有时候我们需要将执行的进度返回给UI线程，如我们要显示下载一张图片的进度，就可以使用这个方法。在这个方法调用之前，我们需要在doInBackground方法中调用publishProgress(Progress)方法来将进度传递给onProgressUpdate方法来更新。</li>
+<li><code>onPostExecute(Result... result)</code>：当doInBackground完成后会将结果返回给这个方法，调用此方法可以更新UI</li>
+</ul>
+<p>以上方法<code>doInBackground</code>方法必须<code>实现</code>！</p>
+<p>在UI线程中调用执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new XXXX().execute();</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>必须在UI线程中创建AsyncTask的实例</li>
+<li>必须在UI线程中调用AsyncTask的execute()方法</li>
+<li>每个AsyncTask只能被执行一次，多次调用将会引发异常</li>
+<li>不要手动的调用onPreExecute(), onPostExecute(Result)，doInBackground(Params…), onProgressUpdate(Progress…)这几个方法</li>
+</ul>
+<h2 id="AsyncTask问题"><a href="#AsyncTask问题" class="headerlink" title="AsyncTask问题"></a>AsyncTask问题</h2><ul>
+<li><p>Activity中创建AsyncTask，当Activity的销毁而AsyncTask会一直执行, 直到doInBackground()方法执行完毕。然后，如果 cancel(boolean)被调用, 那么onCancelled(Result result) 方法会被执行；否则，执行onPostExecute(Result result) 方法。如果我们的Activity销毁之前，没有取消AsyncTask，这有可能让我们的AsyncTask崩溃。因为它想要处理的view已经不存在了。所以，我们总是必须确保在销毁活动之前取消任务</p>
+</li>
+<li><p>如果AsyncTask被声明为Activity的非静态的内部类，那么AsyncTask会保留一个对创建了AsyncTask的Activity的引用。如果Activity已经被销毁，AsyncTask的后台线程还在执行，它将继续在内存里保留这个引用，导致Activity无法被回收，引起内存泄露</p>
+</li>
+<li><p>屏幕旋转或Activity在后台被系统杀掉等情况会导致Activity的重新创建，之前运行的AsyncTask会持有一个之前Activity的引用，这个引用已经无效，这时调用onPostExecute()再去更新界面将不再生效</p>
+</li>
+</ul>
 
       
     </div>
@@ -339,7 +361,9 @@
           
             <a href="/tags/android/" rel="tag">#android</a>
           
-            <a href="/tags/OkHttp/" rel="tag">#OkHttp</a>
+            <a href="/tags/AsyncTask/" rel="tag">#AsyncTask</a>
+          
+            <a href="/tags/异步/" rel="tag">#异步</a>
           
         </div>
       
@@ -348,17 +372,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/02/16/gson/" rel="next" title="Android中Gson解析json数据">
-                <i class="fa fa-chevron-left"></i> Android中Gson解析json数据
+              <a href="/2016/02/26/OkHttp/" rel="next" title="OkHttp基本使用">
+                <i class="fa fa-chevron-left"></i> OkHttp基本使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/02/26/task/" rel="prev" title="Android AsyncTask 使用总结">
-                Android AsyncTask 使用总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -373,10 +393,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/02/26/OkHttp/"
-     data-title="OkHttp基本使用"
+        <div class="ds-share flat" data-thread-key="2016/02/26/task/"
+     data-title="Android AsyncTask 使用总结"
      data-content=""
-     data-url="http://blog.makerwei.me/2016/02/26/OkHttp/">
+     data-url="http://blog.makerwei.me/2016/02/26/task/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -406,8 +426,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/02/26/OkHttp/"
-           data-title="OkHttp基本使用" data-url="http://blog.makerwei.me/2016/02/26/OkHttp/">
+      <div class="ds-thread" data-thread-key="2016/02/26/task/"
+           data-title="Android AsyncTask 使用总结" data-url="http://blog.makerwei.me/2016/02/26/task/">
       </div>
     
   </div>
@@ -543,7 +563,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-GET"><span class="nav-number">1.</span> <span class="nav-text">HTTP GET</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-POST"><span class="nav-number">2.</span> <span class="nav-text">HTTP POST</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#post提交键值对"><span class="nav-number">2.1.</span> <span class="nav-text">post提交键值对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post提交Json数据"><span class="nav-number">2.2.</span> <span class="nav-text">post提交Json数据</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用原因"><span class="nav-number">1.</span> <span class="nav-text">使用原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AsyncTask（异步任务）"><span class="nav-number">2.</span> <span class="nav-text">AsyncTask（异步任务）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AsyncTask问题"><span class="nav-number">3.</span> <span class="nav-text">AsyncTask问题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
