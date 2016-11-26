@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,github pages,gitcafe pages," />
+  <meta name="keywords" content="hexo,github pages," />
 
 
 
@@ -69,7 +69,7 @@ Git
 
 安装完以上程序，然后通过npm install -g hexo即安装好Hexo，然后执行以下命令，Hexo会在指定文件夹中新建所需要的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo+github pages/gitcafe pages搭建自己的blog">
+<meta property="og:title" content="Hexo+github pages/Coding pages搭建自己的blog">
 <meta property="og:url" content="http://blog.makerwei.me/2016/02/03/hexo/index.html">
 <meta property="og:site_name" content="makerwei blog">
 <meta property="og:description" content="什么是Hexo？Hexo 是一个快速、简洁且高效的博客框架。通过它，我们可以快速的搭建自己的bolg并托管到github上。踩了几个坑，我成功的将blog同时部署到github和gitcafe上。
@@ -79,9 +79,9 @@ Node.js
 Git
 
 安装完以上程序，然后通过npm install -g hexo即安装好Hexo，然后执行以下命令，Hexo会在指定文件夹中新建所需要的">
-<meta property="og:updated_time" content="2016-03-02T13:36:17.000Z">
+<meta property="og:updated_time" content="2016-11-26T14:11:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo+github pages/gitcafe pages搭建自己的blog">
+<meta name="twitter:title" content="Hexo+github pages/Coding pages搭建自己的blog">
 <meta name="twitter:description" content="什么是Hexo？Hexo 是一个快速、简洁且高效的博客框架。通过它，我们可以快速的搭建自己的bolg并托管到github上。踩了几个坑，我成功的将blog同时部署到github和gitcafe上。
 安装Hexo检查电脑中是否有以下程序：
 
@@ -106,7 +106,7 @@ Git
   };
 </script>
 
-  <title> Hexo+github pages/gitcafe pages搭建自己的blog | makerwei blog </title>
+  <title> Hexo+github pages/Coding pages搭建自己的blog | makerwei blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +256,7 @@ Git
             
             
               
-                Hexo+github pages/gitcafe pages搭建自己的blog
+                Hexo+github pages/Coding pages搭建自己的blog
               
             
           </h1>
@@ -336,10 +336,11 @@ Git
 <p>安装完以上程序，然后通过<code>npm install -g hexo</code>即安装好Hexo，然后执行以下命令，Hexo会在指定文件夹中新建所需要的文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line">cd &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <h2 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h2><p>切换到目标文件夹，执行命令<code>hexo generate</code>，则会生成静态文件。输入<code>hexo server</code> 开启本地服务。在浏览器中输入以下网址<code>http://localhost:4000/</code> 则可以在本地预览。</p>
-<h2 id="配置github和gitcafe"><a href="#配置github和gitcafe" class="headerlink" title="配置github和gitcafe"></a>配置github和gitcafe</h2><p>两者用法基本一样，都是新建一个仓库，github上仓库名必须为<code>你的用户名.github.io</code>，gitcafe上仓库名为你的用户名就行了，但git的分支为<code>gitcafe-pages</code>，然后编辑目标文件里的<code>_config.yml</code>文件如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - type: git</span><br><span class="line">    repository: https://github.com/Username/Username.github.io.git</span><br><span class="line">    branch: master</span><br><span class="line">  - type: git</span><br><span class="line">    repository: https://gitcafe.com/Username/Username.io.git</span><br><span class="line">    branch: gitcafe-pages</span><br></pre></td></tr></table></figure>
-<p>Hexo可以使用多个deployerHe，Hexo会依照顺序执行每个deployer。记住每个冒号后面都有个空格，要不然部署时会报错。执行命令<code>hexo deploy</code>，你就可以在浏览器中输入<code>http://Username.gitcafe.io</code>或者<code>http://Username.github.io</code>就行了。</p>
+<h2 id="配置github和Coding"><a href="#配置github和Coding" class="headerlink" title="配置github和Coding"></a>配置github和Coding</h2><p>两者用法基本一样，都是新建一个仓库，github上仓库名必须为<code>你的用户名.github.io</code>，Coding上仓库名为你的用户名就行了，但git的分支为<code>coding-pages</code>，然后编辑目标文件里的<code>_config.yml</code>文件如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - type: git</span><br><span class="line">    repository: https://github.com/Username/Username.github.io.git</span><br><span class="line">    branch: master</span><br><span class="line">  - type: git</span><br><span class="line">    repository: https://git.coding.net/Username/Username.git</span><br><span class="line">    branch: coding-pages</span><br></pre></td></tr></table></figure>
+<p>Hexo可以使用多个deployerHe，Hexo会依照顺序执行每个deployer。记住每个冒号后面都有个空格，要不然部署时会报错。执行命令<code>hexo deploy</code>，你就可以在浏览器中输入<code>http://Username.coding.me</code>或者<code>http://Username.github.io</code>就行了。</p>
 <p>如果报错为<br><code>ERROR Deployer not found: git</code>，我的情况是执行命令<code>npm install hexo-deployer-git --save</code> 就解决了。</p>
+<p>于2016年11月更新</p>
 <p>更多资料请参考<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo官方文档</a></p>
 
       
@@ -358,8 +359,6 @@ Git
             <a href="/tags/hexo/" rel="tag">#hexo</a>
           
             <a href="/tags/github-pages/" rel="tag">#github pages</a>
-          
-            <a href="/tags/gitcafe-pages/" rel="tag">#gitcafe pages</a>
           
         </div>
       
@@ -394,7 +393,7 @@ Git
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/02/03/hexo/"
-     data-title="Hexo+github pages/gitcafe pages搭建自己的blog"
+     data-title="Hexo+github pages/Coding pages搭建自己的blog"
      data-content=""
      data-url="http://blog.makerwei.me/2016/02/03/hexo/">
   <div class="ds-share-inline">
@@ -427,7 +426,7 @@ Git
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/02/03/hexo/"
-           data-title="Hexo+github pages/gitcafe pages搭建自己的blog" data-url="http://blog.makerwei.me/2016/02/03/hexo/">
+           data-title="Hexo+github pages/Coding pages搭建自己的blog" data-url="http://blog.makerwei.me/2016/02/03/hexo/">
       </div>
     
   </div>
@@ -472,7 +471,7 @@ Git
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -489,7 +488,7 @@ Git
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -563,7 +562,7 @@ Git
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo？"><span class="nav-number">1.</span> <span class="nav-text">什么是Hexo？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地预览"><span class="nav-number">3.</span> <span class="nav-text">本地预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置github和gitcafe"><span class="nav-number">4.</span> <span class="nav-text">配置github和gitcafe</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo？"><span class="nav-number">1.</span> <span class="nav-text">什么是Hexo？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地预览"><span class="nav-number">3.</span> <span class="nav-text">本地预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置github和Coding"><span class="nav-number">4.</span> <span class="nav-text">配置github和Coding</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
