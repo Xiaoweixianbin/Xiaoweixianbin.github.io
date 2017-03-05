@@ -87,6 +87,42 @@
   </entry>
   
   <entry>
+    <title>Java文件中多个类的使用及初始化顺序</title>
+    <link href="http://blog.makerwei.me/2016/05/05/java%E4%BD%BF%E7%94%A8/"/>
+    <id>http://blog.makerwei.me/2016/05/05/java使用/</id>
+    <published>2016-05-05T07:41:13.000Z</published>
+    <updated>2017-03-05T10:40:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>“一个 Java 文件中可以写多个类吗？”</p>
+</blockquote>
+<p>“可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”</p>
+<h2 id="代码验证"><a href="#代码验证" class="headerlink" title="代码验证"></a>代码验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">public class One &#123;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        new Three(3);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Two&#123;</div><div class="line">    static Four four = new Four(4);</div><div class="line">    static &#123;</div><div class="line">        System.out.println(&quot;This is Two static&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    Two(int i)&#123;</div><div class="line">        System.out.println(&quot;This is Tow&quot; + i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class Three extends Two&#123;</div><div class="line">    static Five five = new Five();</div><div class="line"></div><div class="line">    &#123;</div><div class="line">        System.out.println(&quot;This is three code block&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Three(int i) &#123;</div><div class="line">        super(i);</div><div class="line">        System.out.println(&quot;This is three&quot; + i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Four&#123;</div><div class="line">    Six six = new Six();</div><div class="line">    Four(int i)&#123;</div><div class="line">        System.out.println(&quot;This is four&quot; +i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class Five&#123;</div><div class="line">    Five()&#123;</div><div class="line">        System.out.println(&quot;THis is five&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class Six&#123;</div><div class="line">    Six()&#123;</div><div class="line">        System.out.println(&quot;This is Six&quot; );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">This is Tow2</div><div class="line">This is four4</div><div class="line">This is Two <span class="keyword">static</span></div><div class="line">THis is five</div><div class="line">This is Tow3</div><div class="line">This is three code block</div><div class="line">This is three3</div></pre></td></tr></table></figure>
+<p>由此可见，在同一个 Java 文件里面允许有多个类，但只能有一个与文件名相同的 public 修饰的类，其他用 default。除此之外，我们还可以看出 代码各部分的初始化顺序，顺序是<code>父类的静态成员变量和静态代码块</code>-&gt;<code>子类的静态成员变量和静态代码块</code>-&gt;<code>父类的普通成员变量和代码块</code>-&gt;<code>父类的构造方法</code>-&gt;<code>子类的普通成员变量和代码块</code>-&gt;<code>子类的构造方法</code>。<br>另外，若子类会调用父类的构造方法，若父类构造方法中有参数且没有实现默认构造器，子类的构造方法中必须使用 <code>super(parameter)</code>方法调用父类的有参数的构造方法，且初始化在子类的普通成员变量和代码块前。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;“一个 Java 文件中可以写多个类吗？”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”&lt;/p&gt;
+&lt;h2 id=&quot;代码验证&quot;&gt;&lt;a href=&quot;#代码验证&quot; class=
+    
+    </summary>
+    
+      <category term="java学习笔记" scheme="http://blog.makerwei.me/categories/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="java" scheme="http://blog.makerwei.me/tags/java/"/>
+    
+      <category term="学习笔记" scheme="http://blog.makerwei.me/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android AsyncTask 使用总结</title>
     <link href="http://blog.makerwei.me/2016/02/26/task/"/>
     <id>http://blog.makerwei.me/2016/02/26/task/</id>
@@ -231,6 +267,26 @@
       <category term="json" scheme="http://blog.makerwei.me/tags/json/"/>
     
       <category term="Gson" scheme="http://blog.makerwei.me/tags/Gson/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac上 Sublime Text 打造 Latex 中文环境</title>
+    <link href="http://blog.makerwei.me/2016/02/05/java%20%E7%AC%94%E8%AE%B01/"/>
+    <id>http://blog.makerwei.me/2016/02/05/java 笔记1/</id>
+    <published>2016-02-05T07:41:13.000Z</published>
+    <updated>2017-03-05T10:23:09.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="鼓捣" scheme="http://blog.makerwei.me/categories/%E9%BC%93%E6%8D%A3/"/>
+    
+    
+      <category term="Latex" scheme="http://blog.makerwei.me/tags/Latex/"/>
+    
+      <category term="mac" scheme="http://blog.makerwei.me/tags/mac/"/>
     
   </entry>
   
