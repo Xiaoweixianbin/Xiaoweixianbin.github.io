@@ -1,0 +1,871 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZAY7ewwRj3mGZZ4oPTgNiDXtRDHFLgNXrysltOrn9sE" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,Spring boot,Lombok,IDEA," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="makerwei blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Lombok 是一个帮助程序员简化代码的一个库。当你对 JavaBean 中个某个属性进行改动时，你需要频繁的去改动 Getter 和 Setter 或 toString 或equals等方法，当你使用 Lombok，只需一个@Data就能帮你自动生成以上的方法。详情点击官方网站，github 地址为https://github.com/rzwitserloot/lombok
+安装插件在 IDEA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot 在 IDEA 中使用 Lombok">
+<meta property="og:url" content="http://blog.makerwei.me/2016/11/03/springboot集成lombok /index.html">
+<meta property="og:site_name" content="makerwei blog">
+<meta property="og:description" content="Lombok 是一个帮助程序员简化代码的一个库。当你对 JavaBean 中个某个属性进行改动时，你需要频繁的去改动 Getter 和 Setter 或 toString 或equals等方法，当你使用 Lombok，只需一个@Data就能帮你自动生成以上的方法。详情点击官方网站，github 地址为https://github.com/rzwitserloot/lombok
+安装插件在 IDEA">
+<meta property="og:updated_time" content="2017-03-19T07:26:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Boot 在 IDEA 中使用 Lombok">
+<meta name="twitter:description" content="Lombok 是一个帮助程序员简化代码的一个库。当你对 JavaBean 中个某个属性进行改动时，你需要频繁的去改动 Getter 和 Setter 或 toString 或equals等方法，当你使用 Lombok，只需一个@Data就能帮你自动生成以上的方法。详情点击官方网站，github 地址为https://github.com/rzwitserloot/lombok
+安装插件在 IDEA">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Spring Boot 在 IDEA 中使用 Lombok | makerwei blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8c1a09c08e501a5b8e54dbc79ea39b4c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">makerwei blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Android Python Developer</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Spring Boot 在 IDEA 中使用 Lombok
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-03T09:23:13+08:00" content="2016-11-03">
+              2016-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/03/springboot集成lombok /#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/03/springboot集成lombok /" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          <span>&nbsp; | &nbsp;
+          <span id="busuanzi_value_page_pv" ></span>次阅读
+          </span>    
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Lombok 是一个帮助程序员简化代码的一个库。当你对 <code>JavaBean</code> 中个某个属性进行改动时，你需要频繁的去改动 <code>Getter</code> 和 <code>Setter</code> 或 <code>toString</code> 或<code>equals</code>等方法，<br>当你使用 Lombok，只需一个<code>@Data</code>就能帮你自动生成以上的方法。详情点击<a href="https://projectlombok.org" target="_blank" rel="external">官方网站</a>，github 地址为<a href="https://github.com/rzwitserloot/lombok" target="_blank" rel="external">https://github.com/rzwitserloot/lombok</a></p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>在 IDEA 中使用Lombok需要安装插件</p>
+<ul>
+<li><p>Windows 操作系统：</p>
+<ul>
+<li><kbd>File</kbd> &gt; <kbd>Settings</kbd> &gt; <kbd>Plugins</kbd> &gt; <kbd>Browse repositories…</kbd> &gt; <kbd>Search for “lombok”</kbd> &gt; <kbd>Install Plugin</kbd></li>
+</ul>
+</li>
+<li><p>MacOs 操作系统:</p>
+<ul>
+<li><kbd>Preferences</kbd> &gt; <kbd>Settings</kbd> &gt; <kbd>Plugins</kbd> &gt; <kbd>Browse repositories…</kbd> &gt; <kbd>Search for “lombok”</kbd> &gt; <kbd>Install Plugin</kbd></li>
+</ul>
+</li>
+<li>通常的方法:<ul>
+<li>下载 <a href="https://github.com/mplushnikov/lombok-intellij-plugin/releases/latest" target="_blank" rel="external">latest release</a> 然后安装它 <kbd>Preferences</kbd> &gt; <kbd>Plugins</kbd> &gt; <kbd>Install plugin from disk…</kbd></li>
+</ul>
+</li>
+</ul>
+<p>安装完后重启 IDEA</p>
+<h2 id="IntelliJ-IDEA-的设置"><a href="#IntelliJ-IDEA-的设置" class="headerlink" title="IntelliJ IDEA 的设置"></a>IntelliJ IDEA 的设置</h2><p>点击 <code>Preferences</code> -&gt; <code>&quot;Build, Execution, Deployment</code> -&gt; <code>&quot;Compiler, Annotation Processors&quot;</code>. 点击 <code>Enable Annotation Processing</code></p>
+<p>然后你可能需要全部重新编译你的项目通过<code>&quot;Rebuild Project&quot;</code>.</p>
+<h2 id="添加Lombok-依赖"><a href="#添加Lombok-依赖" class="headerlink" title="添加Lombok 依赖"></a>添加Lombok 依赖</h2><p>请确认你已经将 Lombok 依赖添加到你的项目，这个插件<strong>不会自动</strong>为你添加</p>
+<h3 id="使用-Gradle"><a href="#使用-Gradle" class="headerlink" title="使用 Gradle"></a>使用 Gradle</h3><p>在你的<code>build.gradle</code>里：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//'compile' can be changed to 'compileOnly' for Gradle 2.12+</span></div><div class="line"><span class="comment">// or 'provided' if using 'propdeps' plugin from SpringSource</span></div><div class="line">compile <span class="string">"org.projectlombok:lombok:1.16.10"</span></div></pre></td></tr></table></figure>
+<h3 id="使用-Maven"><a href="#使用-Maven" class="headerlink" title="使用 Maven"></a>使用 Maven</h3><p>在你的 <code>pom.xml</code>里:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.16.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>##注解介绍<br>下面介绍几个常用的注解，更多请参考<a href="https://projectlombok.org/features/index.html" target="_blank" rel="external">https://projectlombok.org/features/index.html</a></p>
+<h3 id="Getter-Setter"><a href="#Getter-Setter" class="headerlink" title="@Getter/@Setter"></a>@Getter/@Setter</h3><p>不用再写<code>public int getFoo() {return foo;}</code>类似的代码</p>
+<h4 id="Java-代码"><a href="#Java-代码" class="headerlink" title="Java 代码"></a>Java 代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetterSetterExample</span> </span>&#123;</div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Age of the person. Water is wet.</div><div class="line">   */</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age = <span class="number">10</span>;</div><div class="line"></div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Name of the person.</div><div class="line">   */</div><div class="line">  <span class="keyword">private</span> String name;</div><div class="line">  </div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> String.format(<span class="string">"%s (age: %d)"</span>, name, age);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Age of the person. Water is wet.</div><div class="line">   *</div><div class="line">   * <span class="doctag">@return</span> The current value of this person's age. Circles are round.</div><div class="line">   */</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> age;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Age of the person. Water is wet.</div><div class="line">   *</div><div class="line">   * <span class="doctag">@param</span> age New value for this person's age. Sky is blue.</div><div class="line">   */</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Changes the name of this person.</div><div class="line">   *</div><div class="line">   * <span class="doctag">@param</span> name The new value.</div><div class="line">   */</div><div class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="使用-Lombok"><a href="#使用-Lombok" class="headerlink" title="使用 Lombok"></a>使用 Lombok</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> lombok.AccessLevel;</div><div class="line"><span class="keyword">import</span> lombok.Getter;</div><div class="line"><span class="keyword">import</span> lombok.Setter;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetterSetterExample</span> </span>&#123;</div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Age of the person. Water is wet.</div><div class="line">   * </div><div class="line">   * <span class="doctag">@param</span> age New value for this person's age. Sky is blue.</div><div class="line">   * <span class="doctag">@return</span> The current value of this person's age. Circles are round.</div><div class="line">   */</div><div class="line">  <span class="meta">@Getter</span> <span class="meta">@Setter</span> <span class="keyword">private</span> <span class="keyword">int</span> age = <span class="number">10</span>;</div><div class="line">  </div><div class="line">  <span class="comment">/**</span></div><div class="line">   * Name of the person.</div><div class="line">   * -- SETTER --</div><div class="line">   * Changes the name of this person.</div><div class="line">   * </div><div class="line">   * <span class="doctag">@param</span> name The new value.</div><div class="line">   */</div><div class="line">  <span class="meta">@Setter</span>(AccessLevel.PROTECTED) <span class="keyword">private</span> String name;</div><div class="line">  </div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> String.format(<span class="string">"%s (age: %d)"</span>, name, age);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Data"><a href="#Data" class="headerlink" title="@Data"></a>@Data</h3><p>所有的注解方法，包括@Getter 和@Setter，通常用这个就够了</p>
+<h4 id="Java-代码-1"><a href="#Java-代码-1" class="headerlink" title="Java 代码"></a>Java 代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataExample</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> String name;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">double</span> score;</div><div class="line">   <span class="keyword">private</span> String[] tags;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">DataExample</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">     <span class="keyword">this</span>.name = name;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">     <span class="keyword">this</span>.age = age;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setScore</span><span class="params">(<span class="keyword">double</span> score)</span> </span>&#123;</div><div class="line">     <span class="keyword">this</span>.score = score;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getScore</span><span class="params">()</span> </span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.score;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">    <span class="keyword">public</span> String[] getTags() &#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.tags;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTags</span><span class="params">(String[] tags)</span> </span>&#123;</div><div class="line">     <span class="keyword">this</span>.tags = tags;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="string">"DataExample("</span> + <span class="keyword">this</span>.getName() + <span class="string">", "</span> + <span class="keyword">this</span>.getAge() + <span class="string">", "</span> + <span class="keyword">this</span>.getScore() + <span class="string">", "</span> + Arrays.deepToString(<span class="keyword">this</span>.getTags()) + <span class="string">")"</span>;</div><div class="line">   &#125;</div><div class="line">  </div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">canEqual</span><span class="params">(Object other)</span> </span>&#123;</div><div class="line">     <span class="keyword">return</span> other <span class="keyword">instanceof</span> DataExample;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">     <span class="keyword">if</span> (o == <span class="keyword">this</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">          <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> DataExample)) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     DataExample other = (DataExample) o;</div><div class="line">     <span class="keyword">if</span> (!other.canEqual((Object)<span class="keyword">this</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     <span class="keyword">if</span> (<span class="keyword">this</span>.getName() == <span class="keyword">null</span> ? other.getName() != <span class="keyword">null</span> : !<span class="keyword">this</span>.getName().equals(other.getName())) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     <span class="keyword">if</span> (<span class="keyword">this</span>.getAge() != other.getAge()) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     <span class="keyword">if</span> (Double.compare(<span class="keyword">this</span>.getScore(), other.getScore()) != <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     <span class="keyword">if</span> (!Arrays.deepEquals(<span class="keyword">this</span>.getTags(), other.getTags())) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</div><div class="line">     <span class="keyword">final</span> <span class="keyword">int</span> PRIME = <span class="number">59</span>;</div><div class="line">     <span class="keyword">int</span> result = <span class="number">1</span>;</div><div class="line">     <span class="keyword">final</span> <span class="keyword">long</span> temp1 = Double.doubleToLongBits(<span class="keyword">this</span>.getScore());</div><div class="line">     result = (result*PRIME) + (<span class="keyword">this</span>.getName() == <span class="keyword">null</span> ? <span class="number">43</span> : <span class="keyword">this</span>.getName().hashCode());</div><div class="line">     result = (result*PRIME) + <span class="keyword">this</span>.getAge();</div><div class="line">     result = (result*PRIME) + (<span class="keyword">int</span>)(temp1 ^ (temp1 &gt;&gt;&gt; <span class="number">32</span>));</div><div class="line">     result = (result*PRIME) + Arrays.deepHashCode(<span class="keyword">this</span>.getTags());</div><div class="line">     <span class="keyword">return</span> result;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Exercise</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">     <span class="keyword">private</span> <span class="keyword">final</span> String name;</div><div class="line">     <span class="keyword">private</span> <span class="keyword">final</span> T value;</div><div class="line">     </div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="title">Exercise</span><span class="params">(String name, T value)</span> </span>&#123;</div><div class="line">       <span class="keyword">this</span>.name = name;</div><div class="line">       <span class="keyword">this</span>.value = value;</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Exercise&lt;T&gt; <span class="title">of</span><span class="params">(String name, T value)</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">new</span> Exercise&lt;T&gt;(name, value);</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     <span class="function"><span class="keyword">public</span> T <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">this</span>.value;</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="string">"Exercise(name="</span> + <span class="keyword">this</span>.getName() + <span class="string">", value="</span> + <span class="keyword">this</span>.getValue() + <span class="string">")"</span>;</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">canEqual</span><span class="params">(Object other)</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> other <span class="keyword">instanceof</span> Exercise;</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (o == <span class="keyword">this</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> Exercise)) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">       Exercise&lt;?&gt; other = (Exercise&lt;?&gt;) o;</div><div class="line">       <span class="keyword">if</span> (!other.canEqual((Object)<span class="keyword">this</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">       <span class="keyword">if</span> (<span class="keyword">this</span>.getName() == <span class="keyword">null</span> ? other.getValue() != <span class="keyword">null</span> : !<span class="keyword">this</span>.getName().equals(other.getName())) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">       <span class="keyword">if</span> (<span class="keyword">this</span>.getValue() == <span class="keyword">null</span> ? other.getValue() != <span class="keyword">null</span> : !<span class="keyword">this</span>.getValue().equals(other.getValue())) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">final</span> <span class="keyword">int</span> PRIME = <span class="number">59</span>;</div><div class="line">       <span class="keyword">int</span> result = <span class="number">1</span>;</div><div class="line">       result = (result*PRIME) + (<span class="keyword">this</span>.getName() == <span class="keyword">null</span> ? <span class="number">43</span> : <span class="keyword">this</span>.getName().hashCode());</div><div class="line">       result = (result*PRIME) + (<span class="keyword">this</span>.getValue() == <span class="keyword">null</span> ? <span class="number">43</span> : <span class="keyword">this</span>.getValue().hashCode());</div><div class="line">       <span class="keyword">return</span> result;</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h4 id="使用-Lombok-1"><a href="#使用-Lombok-1" class="headerlink" title="使用 Lombok"></a>使用 Lombok</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> lombok.AccessLevel;</div><div class="line"><span class="keyword">import</span> lombok.Setter;</div><div class="line"><span class="keyword">import</span> lombok.Data;</div><div class="line"><span class="keyword">import</span> lombok.ToString;</div><div class="line"></div><div class="line"><span class="meta">@Data</span> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataExample</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> String name;</div><div class="line">   <span class="meta">@Setter</span>(AccessLevel.PACKAGE) <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">double</span> score;</div><div class="line">   <span class="keyword">private</span> String[] tags;</div><div class="line">   </div><div class="line">   <span class="meta">@ToString</span>(includeFieldNames=<span class="keyword">true</span>)</div><div class="line">   <span class="meta">@Data</span>(staticConstructor=<span class="string">"of"</span>)</div><div class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Exercise</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String name;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> T value;   </div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/Spring-boot/" rel="tag">#Spring boot</a>
+          
+            <a href="/tags/Lombok/" rel="tag">#Lombok</a>
+          
+            <a href="/tags/IDEA/" rel="tag">#IDEA</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/05/Java源码分析2/" rel="next" title="Java容器 - Vector 源码分析">
+                <i class="fa fa-chevron-left"></i> Java容器 - Vector 源码分析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/26/spring-mysql/" rel="prev" title="Spring Boot 使用  Mysql">
+                Spring Boot 使用  Mysql <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/03/springboot集成lombok /"
+     data-title="Spring Boot 在 IDEA 中使用 Lombok"
+     data-content=""
+     data-url="http://blog.makerwei.me/2016/11/03/springboot集成lombok /">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/03/springboot集成lombok /"
+           data-title="Spring Boot 在 IDEA 中使用 Lombok" data-url="http://blog.makerwei.me/2016/11/03/springboot集成lombok /">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xojnx.com1.z0.glb.clouddn.com/img_head.JPG"
+               alt="小小小maker_wei" />
+          <p class="site-author-name" itemprop="name">小小小maker_wei</p>
+          <p class="site-description motion-element" itemprop="description">我就是我，是颜色不一样的花火</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Xiaoweixianbin" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5603380381/home?wvr=5" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/91350179" target="_blank">
+                  
+                    <i class="fa fa-douban"></i> douban
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/maker" target="_blank">
+                  
+                    <i class="fa fa-zhihu"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装插件"><span class="nav-number">1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IntelliJ-IDEA-的设置"><span class="nav-number">2.</span> <span class="nav-text">IntelliJ IDEA 的设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加Lombok-依赖"><span class="nav-number">3.</span> <span class="nav-text">添加Lombok 依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Gradle"><span class="nav-number">3.1.</span> <span class="nav-text">使用 Gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Maven"><span class="nav-number">3.2.</span> <span class="nav-text">使用 Maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Getter-Setter"><span class="nav-number">3.3.</span> <span class="nav-text">@Getter/@Setter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-代码"><span class="nav-number">3.3.1.</span> <span class="nav-text">Java 代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-Lombok"><span class="nav-number">3.3.2.</span> <span class="nav-text">使用 Lombok</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data"><span class="nav-number">3.4.</span> <span class="nav-text">@Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-代码-1"><span class="nav-number">3.4.1.</span> <span class="nav-text">Java 代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-Lombok-1"><span class="nav-number">3.4.2.</span> <span class="nav-text">使用 Lombok</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小小小maker_wei</span>
+</div>
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的童鞋
+
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"makerwei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"3","bdPos":"left","bdTop":"250"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+  
+
+
+</body>
+</html>
