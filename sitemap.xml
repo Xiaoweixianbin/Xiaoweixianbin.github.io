@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.makerwei.me/2017/01/03/myBabis_1/</loc>
+    
+    <lastmod>2017-03-22T12:10:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.makerwei.me/2016/11/03/springboot%E9%9B%86%E6%88%90lombok%20/</loc>
     
-    <lastmod>2017-03-19T07:26:18.000Z</lastmod>
+    <lastmod>2017-03-20T03:47:05.000Z</lastmod>
     
   </url>
   
@@ -86,13 +93,6 @@
   </url>
   
   <url>
-    <loc>http://blog.makerwei.me/categories/index.html</loc>
-    
-    <lastmod>2016-03-02T13:36:17.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.makerwei.me/2016/02/05/latex/</loc>
     
     <lastmod>2016-03-02T13:36:17.000Z</lastmod>
@@ -101,6 +101,13 @@
   
   <url>
     <loc>http://blog.makerwei.me/tags/index.html</loc>
+    
+    <lastmod>2016-03-02T13:36:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.makerwei.me/categories/index.html</loc>
     
     <lastmod>2016-03-02T13:36:17.000Z</lastmod>
     
