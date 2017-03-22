@@ -74,7 +74,7 @@ MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持�
 
 SpringBoot 中">
 <meta property="og:image" content="http://7xojnx.com1.z0.glb.clouddn.com/result.png">
-<meta property="og:updated_time" content="2017-03-22T12:20:02.000Z">
+<meta property="og:updated_time" content="2017-03-22T12:54:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis 使用指南（1）">
 <meta name="twitter:description" content="什么是 MyBatis
@@ -339,7 +339,9 @@ SpringBoot 中">
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="使用-Gradle"><a href="#使用-Gradle" class="headerlink" title="使用 Gradle"></a>使用 Gradle</h3><p>在你的 <code>build.gradle</code>中：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile(<span class="string">"org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.1-SNAPSHOT"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基于注解"><a href="#基于注解" class="headerlink" title="基于注解"></a>基于注解</h3><p>使用MyBatis-Spring-Boot-Starter will:</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>目录结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">--src </div><div class="line"> --main</div><div class="line">  --java</div><div class="line">   --com.example</div><div class="line">    --dao</div><div class="line">     --UserDao.java</div><div class="line">    --entity</div><div class="line">     --User.java</div><div class="line">    --DemoApplication.java</div><div class="line">    --UserSex.java</div><div class="line"> --resources</div><div class="line">  --mapper</div><div class="line">   --UserMapper.xml</div><div class="line">  --application.properties</div></pre></td></tr></table></figure>
+<h3 id="基于注解"><a href="#基于注解" class="headerlink" title="基于注解"></a>基于注解</h3><p>使用MyBatis-Spring-Boot-Starter will:</p>
 <ul>
 <li>将自动检测存在的数据源</li>
 <li>将数据源输入然后创建注册一个<code>SqlSessionFactoryBean</code>实例</li>
