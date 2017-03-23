@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.makerwei.me/"/>
-  <updated>2017-03-23T06:05:29.000Z</updated>
+  <updated>2017-03-23T08:13:21.000Z</updated>
   <id>http://blog.makerwei.me/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="http://blog.makerwei.me/posts/33582/"/>
     <id>http://blog.makerwei.me/posts/33582/</id>
     <published>2017-02-03T05:43:29.000Z</published>
-    <updated>2017-03-23T06:05:29.000Z</updated>
+    <updated>2017-03-23T08:13:21.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是-MyBatis"><a href="#什么是-MyBatis" class="headerlink" title="什么是 MyBatis"></a>什么是 MyBatis</h2><blockquote>
 <p>MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="SpringBoot-中使用"><a href="#SpringBoot-中使用" class="headerlink" title="SpringBoot 中使用"></a>SpringBoot 中使用</h2><h3 id="使用-Maven"><a href="#使用-Maven" class="headerlink" title="使用 Maven"></a>使用 Maven</h3><p>在你的<code>pom.xml</code>中：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="使用-Gradle"><a href="#使用-Gradle" class="headerlink" title="使用 Gradle"></a>使用 Gradle</h3><p>在你的 <code>build.gradle</code>中：</p>
@@ -62,7 +63,8 @@
     <summary type="html">
     
       &lt;h2 id=&quot;什么是-MyBatis&quot;&gt;&lt;a href=&quot;#什么是-MyBatis&quot; class=&quot;headerlink&quot; title=&quot;什么是 MyBatis&quot;&gt;&lt;/a&gt;什么是 MyBatis&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;MyBatis 是支持定制化 SQL、存储
+&lt;p&gt;MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -84,9 +86,10 @@
     <link href="http://blog.makerwei.me/posts/6582/"/>
     <id>http://blog.makerwei.me/posts/6582/</id>
     <published>2017-01-05T03:31:26.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:13:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>Vector 是 ArrayList 的线程安全版本，依靠<code>synchronized</code>实现，其他大多一样，本文主要说明两者不同的地方</p>
+<a id="more"></a>
 <h2 id="成员变量不同"><a href="#成员变量不同" class="headerlink" title="成员变量不同"></a>成员变量不同</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Vector</span>&lt;<span class="title">E</span>&gt;</span></div><div class="line">    <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</div><div class="line">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The array buffer into which the components of the vector are</div><div class="line">     * stored. The capacity of the vector is the length of this array buffer,</div><div class="line">     * and is at least large enough to contain all the vector's elements.</div><div class="line">     *</div><div class="line">     * &lt;p&gt;Any array elements following the last element in the Vector are null.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@serial</span></div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> Object[] elementData;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The number of valid components in this &#123;<span class="doctag">@code</span> Vector&#125; object.</div><div class="line">     * Components &#123;<span class="doctag">@code</span> elementData[0]&#125; through</div><div class="line">     * &#123;<span class="doctag">@code</span> elementData[elementCount-1]&#125; are the actual items.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@serial</span></div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> elementCount;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The amount by which the capacity of the vector is automatically</div><div class="line">     * incremented when its size becomes greater than its capacity.  If</div><div class="line">     * the capacity increment is less than or equal to zero, the capacity</div><div class="line">     * of the vector is doubled each time it needs to grow.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@serial</span></div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> capacityIncrement;</div></pre></td></tr></table></figure>
 <p>可以看出 Vector 多了一个<code>capacityIncrement</code>变量，暂且翻译为<code>容量增量</code></p>
 <h2 id="构造方法不同"><a href="#构造方法不同" class="headerlink" title="构造方法不同"></a>构造方法不同</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">(<span class="keyword">int</span> initialCapacity, <span class="keyword">int</span> capacityIncrement)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal Capacity: "</span>+</div><div class="line">                                               initialCapacity);</div><div class="line">        <span class="keyword">this</span>.elementData = <span class="keyword">new</span> Object[initialCapacity];</div><div class="line">        <span class="keyword">this</span>.capacityIncrement = capacityIncrement;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Constructs an empty vector with the specified initial capacity and</div><div class="line">     * with its capacity increment equal to zero.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span>   initialCapacity   the initial capacity of the vector</div><div class="line">     * <span class="doctag">@throws</span> IllegalArgumentException if the specified initial capacity</div><div class="line">     *         is negative</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(initialCapacity, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Constructs an empty vector so that its internal data array</div><div class="line">     * has size &#123;<span class="doctag">@code</span> 10&#125; and its standard capacity increment is</div><div class="line">     * zero.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">10</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
@@ -100,7 +103,6 @@
     <summary type="html">
     
       &lt;p&gt;Vector 是 ArrayList 的线程安全版本，依靠&lt;code&gt;synchronized&lt;/code&gt;实现，其他大多一样，本文主要说明两者不同的地方&lt;/p&gt;
-&lt;h2 id=&quot;成员变量不同&quot;&gt;&lt;a href=&quot;#成员变量不同&quot; class=&quot;headerlink&quot; ti
     
     </summary>
     
@@ -120,9 +122,9 @@
     <link href="http://blog.makerwei.me/posts/63081/"/>
     <id>http://blog.makerwei.me/posts/63081/</id>
     <published>2017-01-03T04:41:13.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:11:42.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Java 集合中的 ArrayList 是基于数组实现的</p>
+    <content type="html"><![CDATA[<p>Java 集合中的 ArrayList 是基于数组实现的<br><a id="more"></a></p>
 <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><p>首先我们看初始化一个 ArrayList 的结构</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></div><div class="line">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8683452581122892189L</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 默认大小</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 共用的数组实例用于空的实例</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 默认大小的空实例所用的共用的数组实例。我们判断当一个元素被加入时数组实例该怎样扩大*/</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The array buffer into which the elements of the ArrayList are stored.</div><div class="line">     * The capacity of the ArrayList is the length of this array buffer. Any</div><div class="line">     * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA</div><div class="line">     * will be expanded to DEFAULT_CAPACITY when the first element is added.</div><div class="line">     */</div><div class="line">    <span class="keyword">transient</span> Object[] elementData; <span class="comment">// non-private to simplify nested class access</span></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The size of the ArrayList (the number of elements it contains).</div><div class="line">     *</div><div class="line">     * <span class="doctag">@serial</span></div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</div></pre></td></tr></table></figure>
 <p>大家可以发现ArrayList 继承于 AbstractList，还有 List、Clone、Serializable接口，说明它可以被克隆和序列化。<br><code>Any empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA will be expanded to DEFAULT_CAPACITY when the first element is added.</code>说明只是<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>类型的 ArrayList 在加入一个元素时将会被初始化为10</p>
@@ -135,9 +137,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Java 集合中的 ArrayList 是基于数组实现的&lt;/p&gt;
-&lt;h2 id=&quot;开头&quot;&gt;&lt;a href=&quot;#开头&quot; class=&quot;headerlink&quot; title=&quot;开头&quot;&gt;&lt;/a&gt;开头&lt;/h2&gt;&lt;p&gt;首先我们看初始化一个 ArrayList 的结构&lt;/p&gt;
-&lt;figu
+      &lt;p&gt;Java 集合中的 ArrayList 是基于数组实现的&lt;br&gt;
     
     </summary>
     
@@ -157,12 +157,13 @@
     <link href="http://blog.makerwei.me/posts/28106/"/>
     <id>http://blog.makerwei.me/posts/28106/</id>
     <published>2017-01-02T07:41:13.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:13:53.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>“一个 Java 文件中可以写多个类吗？”</p>
 </blockquote>
 <p>“可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”</p>
+<a id="more"></a>
 <h2 id="代码验证"><a href="#代码验证" class="headerlink" title="代码验证"></a>代码验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">public class One &#123;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        new Three(3);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Two&#123;</div><div class="line">    static Four four = new Four(4);</div><div class="line">    static &#123;</div><div class="line">        System.out.println(&quot;This is Two static&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    Two(int i)&#123;</div><div class="line">        System.out.println(&quot;This is Tow&quot; + i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class Three extends Two&#123;</div><div class="line">    static Five five = new Five();</div><div class="line"></div><div class="line">    &#123;</div><div class="line">        System.out.println(&quot;This is three code block&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Three(int i) &#123;</div><div class="line">        super(i);</div><div class="line">        System.out.println(&quot;This is three&quot; + i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Four&#123;</div><div class="line">    Six six = new Six();</div><div class="line">    Four(int i)&#123;</div><div class="line">        System.out.println(&quot;This is four&quot; +i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class Five&#123;</div><div class="line">    Five()&#123;</div><div class="line">        System.out.println(&quot;THis is five&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class Six&#123;</div><div class="line">    Six()&#123;</div><div class="line">        System.out.println(&quot;This is Six&quot; );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>运行结果：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">This is Tow2</div><div class="line">This is four4</div><div class="line">This is Two <span class="keyword">static</span></div><div class="line">THis is five</div><div class="line">This is Tow3</div><div class="line">This is three code block</div><div class="line">This is three3</div></pre></td></tr></table></figure>
@@ -175,7 +176,6 @@
 &lt;p&gt;“一个 Java 文件中可以写多个类吗？”&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;“可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”&lt;/p&gt;
-&lt;h2 id=&quot;代码验证&quot;&gt;&lt;a href=&quot;#代码验证&quot; class=
     
     </summary>
     
@@ -193,15 +193,14 @@
     <link href="http://blog.makerwei.me/posts/61345/"/>
     <id>http://blog.makerwei.me/posts/61345/</id>
     <published>2016-11-26T14:00:28.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:12:39.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ul>
 <li>Spring Data JPA</li>
 <li>Mysql</li>
 </ul>
 <p>本文将会教大家如何将 mysql 和 Spring Boot 结合起来，且本教程使用 <strong>Gradle</strong> 构建整个项目。</p>
-<hr>
-<h3 id="Spring-Boot-配置"><a href="#Spring-Boot-配置" class="headerlink" title="Spring Boot 配置"></a>Spring Boot 配置</h3><ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h3 id="Spring-Boot-配置"><a href="#Spring-Boot-配置" class="headerlink" title="Spring Boot 配置"></a>Spring Boot 配置</h3><ul>
 <li>在IDEA中新建一个 Spring 项目，在<code>build.gradle</code>中添加依赖如下</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">	compile(<span class="string">'org.springframework.boot:spring-boot-starter-data-jpa'</span>)</div><div class="line">	compile(<span class="string">'org.springframework.boot:spring-boot-starter-web'</span>)</div><div class="line"></div><div class="line">	<span class="comment">/* 数据库依赖 */</span></div><div class="line">	runtime group: <span class="string">'mysql'</span>, name: <span class="string">'mysql-connector-java'</span>, version: <span class="string">'5.1.35'</span></div><div class="line"></div><div class="line">	testCompile(<span class="string">'org.springframework.boot:spring-boot-starter-test'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -245,7 +244,8 @@
 &lt;li&gt;Spring Data JPA&lt;/li&gt;
 &lt;li&gt;Mysql&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;本文将会教大家如何将 mysq
+&lt;p&gt;本文将会教大家如何将 mysql 和 Spring Boot 结合起来，且本教程使用 &lt;strong&gt;Gradle&lt;/strong&gt; 构建整个项目。&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     
@@ -265,9 +265,9 @@
     <link href="http://blog.makerwei.me/posts/56381/"/>
     <id>http://blog.makerwei.me/posts/56381/</id>
     <published>2016-11-03T01:23:13.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:12:38.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Lombok 是一个帮助程序员简化代码的一个库。当你对 <code>JavaBean</code> 中个某个属性进行改动时，你需要频繁的去改动 <code>Getter</code> 和 <code>Setter</code> 或 <code>toString</code> 或<code>equals</code>等方法，<br>当你使用 Lombok，只需一个<code>@Data</code>就能帮你自动生成以上的方法。详情点击<a href="https://projectlombok.org" target="_blank" rel="external">官方网站</a>，github 地址为<a href="https://github.com/rzwitserloot/lombok" target="_blank" rel="external">https://github.com/rzwitserloot/lombok</a></p>
+    <content type="html"><![CDATA[<p>Lombok 是一个帮助程序员简化代码的一个库。当你对 <code>JavaBean</code> 中个某个属性进行改动时，你需要频繁的去改动 <code>Getter</code> 和 <code>Setter</code> 或 <code>toString</code> 或<code>equals</code>等方法，<br>当你使用 Lombok，只需一个<code>@Data</code>就能帮你自动生成以上的方法。详情点击<a href="https://projectlombok.org" target="_blank" rel="external">官方网站</a>，github 地址为<a href="https://github.com/rzwitserloot/lombok" target="_blank" rel="external">https://github.com/rzwitserloot/lombok</a><br><a id="more"></a></p>
 <h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>在 IDEA 中使用Lombok需要安装插件</p>
 <ul>
 <li><p>Windows 操作系统：</p>
@@ -304,7 +304,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Lombok 是一个帮助程序员简化代码的一个库。当你对 &lt;code&gt;JavaBean&lt;/code&gt; 中个某个属性进行改动时，你需要频繁的去改动 &lt;code&gt;Getter&lt;/code&gt; 和 &lt;code&gt;Setter&lt;/code&gt; 或 &lt;code&gt;toString&lt;/code&gt;
+      &lt;p&gt;Lombok 是一个帮助程序员简化代码的一个库。当你对 &lt;code&gt;JavaBean&lt;/code&gt; 中个某个属性进行改动时，你需要频繁的去改动 &lt;code&gt;Getter&lt;/code&gt; 和 &lt;code&gt;Setter&lt;/code&gt; 或 &lt;code&gt;toString&lt;/code&gt; 或&lt;code&gt;equals&lt;/code&gt;等方法，&lt;br&gt;当你使用 Lombok，只需一个&lt;code&gt;@Data&lt;/code&gt;就能帮你自动生成以上的方法。详情点击&lt;a href=&quot;https://projectlombok.org&quot;&gt;官方网站&lt;/a&gt;，github 地址为&lt;a href=&quot;https://github.com/rzwitserloot/lombok&quot;&gt;https://github.com/rzwitserloot/lombok&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
@@ -326,9 +326,9 @@
     <link href="http://blog.makerwei.me/posts/18614/"/>
     <id>http://blog.makerwei.me/posts/18614/</id>
     <published>2016-02-26T10:39:19.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:12:37.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="使用原因"><a href="#使用原因" class="headerlink" title="使用原因"></a>使用原因</h2><p>由于android UI主线程是不安全的，如果在子线程中进行更新UI的操作，就会抛出<code>android.view.ViewRoot$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views</code>的异常。而且UI主线程不能处理耗时的操作，例如访问网络或者查询数据库；一旦UI线程超过5s没有响应用户请求，就会出现ANR（“Application Not Responding”）错误。所以，在一些应用场景我们不得不采用android的异步消息处理机制。</p>
+    <content type="html"><![CDATA[<h2 id="使用原因"><a href="#使用原因" class="headerlink" title="使用原因"></a>使用原因</h2><p>由于android UI主线程是不安全的，如果在子线程中进行更新UI的操作，就会抛出<code>android.view.ViewRoot$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views</code>的异常。而且UI主线程不能处理耗时的操作，例如访问网络或者查询数据库；一旦UI线程超过5s没有响应用户请求，就会出现ANR（“Application Not Responding”）错误。所以，在一些应用场景我们不得不采用android的异步消息处理机制。<br><a id="more"></a></p>
 <h2 id="AsyncTask（异步任务）"><a href="#AsyncTask（异步任务）" class="headerlink" title="AsyncTask（异步任务）"></a>AsyncTask（异步任务）</h2><p>AsyncTask是一个抽象类，我们使用它就要定义一个类来继承AsyncTask这个抽象类，并实现其中doInBackgroud方法。</p>
 <p>使用时我们为AsyncTask类指定3个泛型参数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public class XXXX extends AsyncTask&lt;Params, Progress, Result&gt;&#123;&#125;</div></pre></td></tr></table></figure>
@@ -368,7 +368,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;使用原因&quot;&gt;&lt;a href=&quot;#使用原因&quot; class=&quot;headerlink&quot; title=&quot;使用原因&quot;&gt;&lt;/a&gt;使用原因&lt;/h2&gt;&lt;p&gt;由于android UI主线程是不安全的，如果在子线程中进行更新UI的操作，就会抛出&lt;code&gt;android.view.V
+      &lt;h2 id=&quot;使用原因&quot;&gt;&lt;a href=&quot;#使用原因&quot; class=&quot;headerlink&quot; title=&quot;使用原因&quot;&gt;&lt;/a&gt;使用原因&lt;/h2&gt;&lt;p&gt;由于android UI主线程是不安全的，如果在子线程中进行更新UI的操作，就会抛出&lt;code&gt;android.view.ViewRoot$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views&lt;/code&gt;的异常。而且UI主线程不能处理耗时的操作，例如访问网络或者查询数据库；一旦UI线程超过5s没有响应用户请求，就会出现ANR（“Application Not Responding”）错误。所以，在一些应用场景我们不得不采用android的异步消息处理机制。&lt;br&gt;
     
     </summary>
     
@@ -388,9 +388,13 @@
     <link href="http://blog.makerwei.me/posts/23698/"/>
     <id>http://blog.makerwei.me/posts/23698/</id>
     <published>2016-02-26T08:28:19.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:11:36.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="HTTP-GET"><a href="#HTTP-GET" class="headerlink" title="HTTP GET"></a>HTTP GET</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">OkHttpClient client = new OkHttpClient();</div><div class="line">      Request request = new Request.Builder().url(&quot;http://baidu.com&quot;).build();</div><div class="line">      client.newCall(request).enqueue(new Callback() &#123;</div><div class="line">          @Override</div><div class="line">          public void onFailure(Request request, IOException e) &#123;</div><div class="line"></div><div class="line">          &#125;</div><div class="line"></div><div class="line">          @Override</div><div class="line">          public void onResponse(Response response) throws IOException &#123;</div><div class="line">              //Log.e(TAG, response.body().string());</div><div class="line">          &#125;</div><div class="line">      &#125;);</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<blockquote>
+<p>HTTP is the way modern applications network. It’s how we exchange data &amp; media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="HTTP-GET"><a href="#HTTP-GET" class="headerlink" title="HTTP GET"></a>HTTP GET</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">OkHttpClient client = new OkHttpClient();</div><div class="line">      Request request = new Request.Builder().url(&quot;http://baidu.com&quot;).build();</div><div class="line">      client.newCall(request).enqueue(new Callback() &#123;</div><div class="line">          @Override</div><div class="line">          public void onFailure(Request request, IOException e) &#123;</div><div class="line"></div><div class="line">          &#125;</div><div class="line"></div><div class="line">          @Override</div><div class="line">          public void onResponse(Response response) throws IOException &#123;</div><div class="line">              //Log.e(TAG, response.body().string());</div><div class="line">          &#125;</div><div class="line">      &#125;);</div></pre></td></tr></table></figure>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
 <li>Request是OkHttp中访问的请求，<code>Builder</code>是辅助类。Response即OkHttp中的响应。</li>
 <li>构造一个<code>Request</code>对象，设置好URL，还可以通过<code>Request.Builder</code>设置更多的参数。</li>
@@ -408,7 +412,9 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;HTTP-GET&quot;&gt;&lt;a href=&quot;#HTTP-GET&quot; class=&quot;headerlink&quot; title=&quot;HTTP GET&quot;&gt;&lt;/a&gt;HTTP GET&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
+      &lt;blockquote&gt;
+&lt;p&gt;HTTP is the way modern applications network. It’s how we exchange data &amp;amp; media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -426,7 +432,7 @@
     <link href="http://blog.makerwei.me/posts/35060/"/>
     <id>http://blog.makerwei.me/posts/35060/</id>
     <published>2016-02-16T12:27:37.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:11:44.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 </p>
@@ -434,6 +440,7 @@
 <p>JSON数组：数组在js中是中括号“[]”括起来的内容，数据结构为 [“java”,”javascript”,”vb”,…]，取值方式和所有语言中一样，使用索引获取，字段值的类型可以是 数字、字符串、数组、对象几种。<br>                                    ————百度百科</p>
 </blockquote>
 <hr>
+<a id="more"></a>
 <p>解析JSON首先要创建JSON数据对应的一个对象，例如假设我们获得数据如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;status&quot;: &quot;error&quot;,</div><div class="line">    &quot;UUID&quot;: 123</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>则要创建的类<code>Data.java</code>如下：</p>
@@ -454,7 +461,10 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 &lt;/p&gt;
-&lt;p&gt;JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为 {key：value,key：value,…}的键值对的结构，在面向对
+&lt;p&gt;JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为 {key：value,key：value,…}的键值对的结构，在面向对象的语言中，key为对象的属性，value为对应的属性值，所以很容易理解，取值方法为 对象.key 获取属性值，这个属性值的类型可以是 数字、字符串、数组、对象几种。&lt;/p&gt;
+&lt;p&gt;JSON数组：数组在js中是中括号“[]”括起来的内容，数据结构为 [“java”,”javascript”,”vb”,…]，取值方式和所有语言中一样，使用索引获取，字段值的类型可以是 数字、字符串、数组、对象几种。&lt;br&gt;                                    ————百度百科&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
     
     </summary>
     
@@ -474,13 +484,13 @@
     <link href="http://blog.makerwei.me/posts/29855/"/>
     <id>http://blog.makerwei.me/posts/29855/</id>
     <published>2016-02-05T07:41:13.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:11:38.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>工欲善其事必先利其器</p>
 </blockquote>
 <p>这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex。</p>
-<p>Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行速度快，把它作为Latex的编辑器最好不过了</p>
+<p>Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行速度快，把它作为Latex的编辑器最好不过了<br><a id="more"></a></p>
 <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
 <li><p>下载<a href="http://www.tug.org/mactex/" target="_blank" rel="external">MacTex</a>和<a href="http://skim-app.sourceforge.net" target="_blank" rel="external">skim</a>并安装</p>
 </li>
@@ -514,7 +524,8 @@ sudo tlmgr install latexm
       &lt;blockquote&gt;
 &lt;p&gt;工欲善其事必先利其器&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex
+&lt;p&gt;这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex。&lt;/p&gt;
+&lt;p&gt;Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行速度快，把它作为Latex的编辑器最好不过了&lt;br&gt;
     
     </summary>
     
@@ -532,7 +543,7 @@ sudo tlmgr install latexm
     <link href="http://blog.makerwei.me/posts/22949/"/>
     <id>http://blog.makerwei.me/posts/22949/</id>
     <published>2016-02-03T13:13:25.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:11:44.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是Hexo？"><a href="#什么是Hexo？" class="headerlink" title="什么是Hexo？"></a>什么是Hexo？</h2><p><code>Hexo</code> 是一个快速、简洁且高效的博客框架。通过它，我们可以快速的搭建自己的bolg并托管到github上。踩了几个坑，我成功的将blog同时部署到github和gitcafe上。</p>
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>检查电脑中是否有以下程序：</p>
@@ -540,6 +551,7 @@ sudo tlmgr install latexm
 <li>Node.js</li>
 <li>Git</li>
 </ul>
+<a id="more"></a>
 <p>安装完以上程序，然后通过<code>npm install -g hexo</code>即安装好Hexo，然后执行以下命令，Hexo会在指定文件夹中新建所需要的文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init &lt;folder&gt;</div><div class="line">cd &lt;folder&gt;</div><div class="line">npm install</div></pre></td></tr></table></figure>
 <h2 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h2><p>切换到目标文件夹，执行命令<code>hexo generate</code>，则会生成静态文件。输入<code>hexo server</code> 开启本地服务。在浏览器中输入以下网址<code>http://localhost:4000/</code> 则可以在本地预览。</p>
@@ -553,7 +565,12 @@ sudo tlmgr install latexm
     
     <summary type="html">
     
-      &lt;h2 id=&quot;什么是Hexo？&quot;&gt;&lt;a href=&quot;#什么是Hexo？&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo？&quot;&gt;&lt;/a&gt;什么是Hexo？&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Hexo&lt;/code&gt; 是一个快速、简洁且高效的博客框架。通过它，我们可以快速的
+      &lt;h2 id=&quot;什么是Hexo？&quot;&gt;&lt;a href=&quot;#什么是Hexo？&quot; class=&quot;headerlink&quot; title=&quot;什么是Hexo？&quot;&gt;&lt;/a&gt;什么是Hexo？&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Hexo&lt;/code&gt; 是一个快速、简洁且高效的博客框架。通过它，我们可以快速的搭建自己的bolg并托管到github上。踩了几个坑，我成功的将blog同时部署到github和gitcafe上。&lt;/p&gt;
+&lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;p&gt;检查电脑中是否有以下程序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Node.js&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -571,9 +588,9 @@ sudo tlmgr install latexm
     <link href="http://blog.makerwei.me/posts/47021/"/>
     <id>http://blog.makerwei.me/posts/47021/</id>
     <published>2016-01-02T08:13:08.000Z</published>
-    <updated>2017-03-23T05:50:32.000Z</updated>
+    <updated>2017-03-23T08:12:39.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="pelican"><a href="#pelican" class="headerlink" title="pelican"></a>pelican</h2><p>Pelican是用python写的一套开源的静态网页生成项目，与当前很火的Jekyll很相似。不过作为一个python爱好者，Pelican更加让我喜欢。它评论使用Disqus，支持Markdown格式，支持代码高亮等功能。之前有使用Wordpress搭过blog。</p>
+    <content type="html"><![CDATA[<h2 id="pelican"><a href="#pelican" class="headerlink" title="pelican"></a>pelican</h2><p>Pelican是用python写的一套开源的静态网页生成项目，与当前很火的Jekyll很相似。不过作为一个python爱好者，Pelican更加让我喜欢。它评论使用Disqus，支持Markdown格式，支持代码高亮等功能。之前有使用Wordpress搭过blog。<br><a id="more"></a></p>
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p><code>virtualenv</code> 可用来用来建立一个虚拟的python环境，一个专属于项目的python环境。</p>
 <h3 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pip install virtualenv</div><div class="line">virtualenv myblog</div><div class="line">cd myblog</div><div class="line">source bin/activate</div></pre></td></tr></table></figure>
 <h3 id="安装Pelican"><a href="#安装Pelican" class="headerlink" title="安装Pelican"></a>安装Pelican</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/getpelican/pelican.git</div><div class="line">cd pelican</div><div class="line">python setup.py install</div></pre></td></tr></table></figure>
@@ -613,7 +630,7 @@ sudo tlmgr install latexm
     
     <summary type="html">
     
-      &lt;h2 id=&quot;pelican&quot;&gt;&lt;a href=&quot;#pelican&quot; class=&quot;headerlink&quot; title=&quot;pelican&quot;&gt;&lt;/a&gt;pelican&lt;/h2&gt;&lt;p&gt;Pelican是用python写的一套开源的静态网页生成项目，与当前很火的Jekyll很相似。不过作
+      &lt;h2 id=&quot;pelican&quot;&gt;&lt;a href=&quot;#pelican&quot; class=&quot;headerlink&quot; title=&quot;pelican&quot;&gt;&lt;/a&gt;pelican&lt;/h2&gt;&lt;p&gt;Pelican是用python写的一套开源的静态网页生成项目，与当前很火的Jekyll很相似。不过作为一个python爱好者，Pelican更加让我喜欢。它评论使用Disqus，支持Markdown格式，支持代码高亮等功能。之前有使用Wordpress搭过blog。&lt;br&gt;
     
     </summary>
     

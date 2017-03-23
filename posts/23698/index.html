@@ -91,16 +91,16 @@
 
 
 
-<meta name="description" content="HTTP GET12345678910111213OkHttpClient client = new OkHttpClient();      Request request = new Request.Builder().url(&amp;quot;http://baidu.com&amp;quot;).build();      client.newCall(request).enqueue(new Call">
+<meta name="description" content="HTTP is the way modern applications network. It’s how we exchange data &amp;amp; media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OkHttp基本使用">
 <meta property="og:url" content="http://blog.makerwei.me/posts/23698/index.html">
 <meta property="og:site_name" content="makerwei blog">
-<meta property="og:description" content="HTTP GET12345678910111213OkHttpClient client = new OkHttpClient();      Request request = new Request.Builder().url(&amp;quot;http://baidu.com&amp;quot;).build();      client.newCall(request).enqueue(new Call">
-<meta property="og:updated_time" content="2017-03-23T05:50:32.000Z">
+<meta property="og:description" content="HTTP is the way modern applications network. It’s how we exchange data &amp;amp; media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.">
+<meta property="og:updated_time" content="2017-03-23T08:11:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OkHttp基本使用">
-<meta name="twitter:description" content="HTTP GET12345678910111213OkHttpClient client = new OkHttpClient();      Request request = new Request.Builder().url(&amp;quot;http://baidu.com&amp;quot;).build();      client.newCall(request).enqueue(new Call">
+<meta name="twitter:description" content="HTTP is the way modern applications network. It’s how we exchange data &amp;amp; media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.">
 
 
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  324
+                  349
                 </span>
               
 
@@ -443,7 +443,11 @@
       
 
       
-        <h2 id="HTTP-GET"><a href="#HTTP-GET" class="headerlink" title="HTTP GET"></a>HTTP GET</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">OkHttpClient client = new OkHttpClient();</div><div class="line">      Request request = new Request.Builder().url(&quot;http://baidu.com&quot;).build();</div><div class="line">      client.newCall(request).enqueue(new Callback() &#123;</div><div class="line">          @Override</div><div class="line">          public void onFailure(Request request, IOException e) &#123;</div><div class="line"></div><div class="line">          &#125;</div><div class="line"></div><div class="line">          @Override</div><div class="line">          public void onResponse(Response response) throws IOException &#123;</div><div class="line">              //Log.e(TAG, response.body().string());</div><div class="line">          &#125;</div><div class="line">      &#125;);</div></pre></td></tr></table></figure>
+        <blockquote>
+<p>HTTP is the way modern applications network. It’s how we exchange data &amp; media. Doing HTTP efficiently makes your stuff load faster and saves bandwidth.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="HTTP-GET"><a href="#HTTP-GET" class="headerlink" title="HTTP GET"></a>HTTP GET</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">OkHttpClient client = new OkHttpClient();</div><div class="line">      Request request = new Request.Builder().url(&quot;http://baidu.com&quot;).build();</div><div class="line">      client.newCall(request).enqueue(new Callback() &#123;</div><div class="line">          @Override</div><div class="line">          public void onFailure(Request request, IOException e) &#123;</div><div class="line"></div><div class="line">          &#125;</div><div class="line"></div><div class="line">          @Override</div><div class="line">          public void onResponse(Response response) throws IOException &#123;</div><div class="line">              //Log.e(TAG, response.body().string());</div><div class="line">          &#125;</div><div class="line">      &#125;);</div></pre></td></tr></table></figure>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
 <li>Request是OkHttp中访问的请求，<code>Builder</code>是辅助类。Response即OkHttp中的响应。</li>
 <li>构造一个<code>Request</code>对象，设置好URL，还可以通过<code>Request.Builder</code>设置更多的参数。</li>

@@ -91,22 +91,16 @@
 
 
 
-<meta name="description" content="Java 集合中的 ArrayList 是基于数组实现的
-开头首先我们看初始化一个 ArrayList 的结构
-123456789101112131415161718192021222324252627282930313233public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt">
+<meta name="description" content="Java 集合中的 ArrayList 是基于数组实现的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java容器 - ArrayList 源码分析">
 <meta property="og:url" content="http://blog.makerwei.me/posts/63081/index.html">
 <meta property="og:site_name" content="makerwei blog">
-<meta property="og:description" content="Java 集合中的 ArrayList 是基于数组实现的
-开头首先我们看初始化一个 ArrayList 的结构
-123456789101112131415161718192021222324252627282930313233public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt">
-<meta property="og:updated_time" content="2017-03-23T05:50:32.000Z">
+<meta property="og:description" content="Java 集合中的 ArrayList 是基于数组实现的">
+<meta property="og:updated_time" content="2017-03-23T08:11:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java容器 - ArrayList 源码分析">
-<meta name="twitter:description" content="Java 集合中的 ArrayList 是基于数组实现的
-开头首先我们看初始化一个 ArrayList 的结构
-123456789101112131415161718192021222324252627282930313233public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt">
+<meta name="twitter:description" content="Java 集合中的 ArrayList 是基于数组实现的">
 
 
 
@@ -449,7 +443,7 @@
       
 
       
-        <p>Java 集合中的 ArrayList 是基于数组实现的</p>
+        <p>Java 集合中的 ArrayList 是基于数组实现的<br><a id="more"></a></p>
 <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><p>首先我们看初始化一个 ArrayList 的结构</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></div><div class="line">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8683452581122892189L</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 默认大小</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 共用的数组实例用于空的实例</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 默认大小的空实例所用的共用的数组实例。我们判断当一个元素被加入时数组实例该怎样扩大*/</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The array buffer into which the elements of the ArrayList are stored.</div><div class="line">     * The capacity of the ArrayList is the length of this array buffer. Any</div><div class="line">     * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA</div><div class="line">     * will be expanded to DEFAULT_CAPACITY when the first element is added.</div><div class="line">     */</div><div class="line">    <span class="keyword">transient</span> Object[] elementData; <span class="comment">// non-private to simplify nested class access</span></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The size of the ArrayList (the number of elements it contains).</div><div class="line">     *</div><div class="line">     * <span class="doctag">@serial</span></div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</div></pre></td></tr></table></figure>
 <p>大家可以发现ArrayList 继承于 AbstractList，还有 List、Clone、Serializable接口，说明它可以被克隆和序列化。<br><code>Any empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA will be expanded to DEFAULT_CAPACITY when the first element is added.</code>说明只是<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>类型的 ArrayList 在加入一个元素时将会被初始化为10</p>
