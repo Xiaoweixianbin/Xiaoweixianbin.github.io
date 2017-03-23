@@ -447,7 +447,10 @@
         
           
           什么是 MyBatis
-MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis 避免了几乎所有的 JDBC 代码和手动设置
+MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。
+
+SpringBoot 中使用使用 Maven在你的pom.xml中：
+12345&lt;dependency&gt;    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;    &lt;version&gt;1.2.1-SNA
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -649,7 +652,7 @@ MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持�
         
           
           Vector 是 ArrayList 的线程安全版本，依靠synchronized实现，其他大多一样，本文主要说明两者不同的地方
-成员变量不同123456789
+成员变量不同123456789101112131415161718192021222324252627282930313233public class Vector&lt;E&gt;    extends AbstractList&lt;E&gt;    implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable&#123;    /**     * The array buffer into which the components of the vector are     * stored. The capacity of the vector is the length 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -852,7 +855,7 @@ MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持�
           
           Java 集合中的 ArrayList 是基于数组实现的
 开头首先我们看初始化一个 ArrayList 的结构
-123456789101112131415161
+123456789101112131415161718192021222324252627282930313233public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt;        implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable&#123;    private static final long serialVersionUID = 8683452581122892189L;    /**     * 默认大小     */    private static final int DEFAULT_CAPACITY 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1057,7 +1060,7 @@ MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持�
 “一个 Java 文件中可以写多个类吗？”
 
 “可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”
-代码验证12345678910
+代码验证123456789101112131415161718192021222324252627282930313233343536373839404142434445464748public class One &#123;    public static void main(String[] args)&#123;        new Three(3);    &#125;&#125;class Two&#123;    static Four four = new Four(4);    static &#123;        System.out.println(&quot;This is Two static&quot;);    &#125;
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1262,7 +1265,12 @@ MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持�
 Spring Data JPA
 Mysql
 
-本文将会教大家如何将 mysql 和 Spring Boot 结合起来，且本教程使用 Gradle 构建整
+本文将会教大家如何将 mysql 和 Spring Boot 结合起来，且本教程使用 Gradle 构建整个项目。
+
+Spring Boot 配置
+在IDEA中新建一个 Spring 项目，在build.gradle中添加依赖如下
+
+123456789dependencies &#123;	compile('org.springframework.boot:spring-boot-starter-data-jpa')	compile('org.springframework.boot:spring-boot-starter-web')	/* 数据库依赖 */	runtime group: 'mysql', name: 'mysql-connector-java', version: '5.1.35'	testCompile('org.s
           ...
           <!--noindex-->
           <div class="post-button text-center">
