@@ -96,12 +96,12 @@
 123456789101112131415161718192021222324252627282930313233public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java容器 - ArrayList 源码分析">
-<meta property="og:url" content="http://blog.makerwei.me/java源码分析1/index.html">
+<meta property="og:url" content="http://blog.makerwei.me/posts/63081/index.html">
 <meta property="og:site_name" content="makerwei blog">
 <meta property="og:description" content="Java 集合中的 ArrayList 是基于数组实现的
 开头首先我们看初始化一个 ArrayList 的结构
 123456789101112131415161718192021222324252627282930313233public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt">
-<meta property="og:updated_time" content="2017-03-23T04:48:37.000Z">
+<meta property="og:updated_time" content="2017-03-23T05:50:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java容器 - ArrayList 源码分析">
 <meta name="twitter:description" content="Java 集合中的 ArrayList 是基于数组实现的
@@ -115,7 +115,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.makerwei.me/java源码分析1/"/>
+  <link rel="canonical" href="http://blog.makerwei.me/posts/63081/"/>
 
 
 
@@ -289,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.makerwei.me/java源码分析1/">
+    <link itemprop="mainEntityOfPage" href="http://blog.makerwei.me/posts/63081/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小小小maker_wei">
@@ -367,8 +367,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/java源码分析1/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="java源码分析1/" itemprop="commentsCount"></span>
+                <a href="/posts/63081/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/63081/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -376,7 +376,7 @@
 
           
           
-             <span id="/java源码分析1/" class="leancloud_visitors" data-flag-title="Java容器 - ArrayList 源码分析">
+             <span id="/posts/63081/" class="leancloud_visitors" data-flag-title="Java容器 - ArrayList 源码分析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -498,7 +498,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://blog.makerwei.me/java源码分析1/" title="Java容器 - ArrayList 源码分析">http://blog.makerwei.me/java源码分析1/</a>
+      <a href="http://blog.makerwei.me/posts/63081/" title="Java容器 - ArrayList 源码分析">http://blog.makerwei.me/posts/63081/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -531,7 +531,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/java初始化顺序/" rel="next" title="Java文件中多个类的使用及初始化顺序">
+              <a href="/posts/28106/" rel="next" title="Java文件中多个类的使用及初始化顺序">
                 <i class="fa fa-chevron-left"></i> Java文件中多个类的使用及初始化顺序
               </a>
             
@@ -541,7 +541,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Java源码分析2/" rel="prev" title="Java容器 - Vector 源码分析">
+              <a href="/posts/6582/" rel="prev" title="Java容器 - Vector 源码分析">
                 Java容器 - Vector 源码分析 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -716,13 +716,6 @@
       
 
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
 
     </div>
   </aside>
@@ -772,6 +765,13 @@
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
     
 
   </div>

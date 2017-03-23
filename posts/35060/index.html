@@ -95,11 +95,11 @@
 JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为 {key：value,key：value,…}的键值对的结构，在面向对象的语言中，key为对象的属性，value为对应的属性值，所以很容易理解，取值方法为 对象.key 获取属性值，这个属性值的类型可以是 数字、字符串、数组、对象几种">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android中Gson解析json数据">
-<meta property="og:url" content="http://blog.makerwei.me/gson/index.html">
+<meta property="og:url" content="http://blog.makerwei.me/posts/35060/index.html">
 <meta property="og:site_name" content="makerwei blog">
 <meta property="og:description" content="JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 
 JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为 {key：value,key：value,…}的键值对的结构，在面向对象的语言中，key为对象的属性，value为对应的属性值，所以很容易理解，取值方法为 对象.key 获取属性值，这个属性值的类型可以是 数字、字符串、数组、对象几种">
-<meta property="og:updated_time" content="2016-03-05T12:39:36.000Z">
+<meta property="og:updated_time" content="2017-03-23T05:50:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中Gson解析json数据">
 <meta name="twitter:description" content="JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 
@@ -112,7 +112,7 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -131,7 +131,7 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
 
 
 
-  <link rel="canonical" href="http://blog.makerwei.me/gson/"/>
+  <link rel="canonical" href="http://blog.makerwei.me/posts/35060/"/>
 
 
 
@@ -286,7 +286,7 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.makerwei.me/gson/">
+    <link itemprop="mainEntityOfPage" href="http://blog.makerwei.me/posts/35060/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小小小maker_wei">
@@ -364,8 +364,8 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/gson/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="gson/" itemprop="commentsCount"></span>
+                <a href="/posts/35060/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/35060/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -373,7 +373,7 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
 
           
           
-             <span id="/gson/" class="leancloud_visitors" data-flag-title="Android中Gson解析json数据">
+             <span id="/posts/35060/" class="leancloud_visitors" data-flag-title="Android中Gson解析json数据">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -506,7 +506,7 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://blog.makerwei.me/gson/" title="Android中Gson解析json数据">http://blog.makerwei.me/gson/</a>
+      <a href="http://blog.makerwei.me/posts/35060/" title="Android中Gson解析json数据">http://blog.makerwei.me/posts/35060/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -539,7 +539,7 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/latex/" rel="next" title="Mac上 Sublime Text 打造 Latex 中文环境">
+              <a href="/posts/29855/" rel="next" title="Mac上 Sublime Text 打造 Latex 中文环境">
                 <i class="fa fa-chevron-left"></i> Mac上 Sublime Text 打造 Latex 中文环境
               </a>
             
@@ -549,7 +549,7 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/OkHttp/" rel="prev" title="OkHttp基本使用">
+              <a href="/posts/23698/" rel="prev" title="OkHttp基本使用">
                 OkHttp基本使用 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -699,13 +699,6 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
       
 
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
 
     </div>
   </aside>
@@ -755,6 +748,13 @@ JSON对象：对象在js中表示为“{}”括起来的内容，数据结构为
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
     
 
   </div>

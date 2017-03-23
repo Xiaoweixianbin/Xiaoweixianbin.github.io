@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,学习笔记," />
+  <meta name="keywords" content="spring boot,mysql,教程," />
 
 
 
@@ -91,25 +91,43 @@
 
 
 
-<meta name="description" content="“一个 Java 文件中可以写多个类吗？”
+<meta name="description" content="知识点
+Spring Data JPA
+Mysql
 
-“可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”
-代码验证123456789101112131415161718192021222324252627282930313233343536373839404142434445464748public class One &amp;#123;    public static voi">
+本文将会教大家如何将 mysql 和 Spring Boot 结合起来，且本教程使用 Gradle 构建整个项目。
+
+Spring Boot 配置
+在IDEA中新建一个 Spring 项目，在build.gradle中添加依赖如下
+
+123456789dependencies &amp;#123;	compile(&apos;org.springframewor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java文件中多个类的使用及初始化顺序">
-<meta property="og:url" content="http://blog.makerwei.me/java初始化顺序/index.html">
+<meta property="og:title" content="Spring Boot 使用  Mysql">
+<meta property="og:url" content="http://blog.makerwei.me/posts/61345/index.html">
 <meta property="og:site_name" content="makerwei blog">
-<meta property="og:description" content="“一个 Java 文件中可以写多个类吗？”
+<meta property="og:description" content="知识点
+Spring Data JPA
+Mysql
 
-“可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”
-代码验证123456789101112131415161718192021222324252627282930313233343536373839404142434445464748public class One &amp;#123;    public static voi">
-<meta property="og:updated_time" content="2017-03-23T04:48:39.000Z">
+本文将会教大家如何将 mysql 和 Spring Boot 结合起来，且本教程使用 Gradle 构建整个项目。
+
+Spring Boot 配置
+在IDEA中新建一个 Spring 项目，在build.gradle中添加依赖如下
+
+123456789dependencies &amp;#123;	compile(&apos;org.springframewor">
+<meta property="og:updated_time" content="2017-03-23T05:50:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java文件中多个类的使用及初始化顺序">
-<meta name="twitter:description" content="“一个 Java 文件中可以写多个类吗？”
+<meta name="twitter:title" content="Spring Boot 使用  Mysql">
+<meta name="twitter:description" content="知识点
+Spring Data JPA
+Mysql
 
-“可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”
-代码验证123456789101112131415161718192021222324252627282930313233343536373839404142434445464748public class One &amp;#123;    public static voi">
+本文将会教大家如何将 mysql 和 Spring Boot 结合起来，且本教程使用 Gradle 构建整个项目。
+
+Spring Boot 配置
+在IDEA中新建一个 Spring 项目，在build.gradle中添加依赖如下
+
+123456789dependencies &amp;#123;	compile(&apos;org.springframewor">
 
 
 
@@ -118,7 +136,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -137,13 +155,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.makerwei.me/java初始化顺序/"/>
+  <link rel="canonical" href="http://blog.makerwei.me/posts/61345/"/>
 
 
 
 
 
-  <title> Java文件中多个类的使用及初始化顺序 | makerwei blog </title>
+  <title> Spring Boot 使用  Mysql | makerwei blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -292,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.makerwei.me/java初始化顺序/">
+    <link itemprop="mainEntityOfPage" href="http://blog.makerwei.me/posts/61345/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小小小maker_wei">
@@ -313,7 +331,7 @@
             
             
               
-                Java文件中多个类的使用及初始化顺序
+                Spring Boot 使用  Mysql
               
             
           </h2>
@@ -328,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-02T15:41:13+08:00">
-                2017-01-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-26T22:00:28+08:00">
+                2016-11-26
               </time>
             
 
@@ -351,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">java学习笔记</span>
+                  <a href="/categories/spring-学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">spring 学习笔记</span>
                   </a>
                 </span>
 
@@ -370,8 +388,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/java初始化顺序/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="java初始化顺序/" itemprop="commentsCount"></span>
+                <a href="/posts/61345/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/61345/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -379,7 +397,7 @@
 
           
           
-             <span id="/java初始化顺序/" class="leancloud_visitors" data-flag-title="Java文件中多个类的使用及初始化顺序">
+             <span id="/posts/61345/" class="leancloud_visitors" data-flag-title="Spring Boot 使用  Mysql">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -443,14 +461,48 @@
       
 
       
-        <blockquote>
-<p>“一个 Java 文件中可以写多个类吗？”</p>
-</blockquote>
-<p>“可以，不过只允许有一个 public 修饰的类，且修饰的类的名字与文件名相同”</p>
-<h2 id="代码验证"><a href="#代码验证" class="headerlink" title="代码验证"></a>代码验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">public class One &#123;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        new Three(3);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Two&#123;</div><div class="line">    static Four four = new Four(4);</div><div class="line">    static &#123;</div><div class="line">        System.out.println(&quot;This is Two static&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    Two(int i)&#123;</div><div class="line">        System.out.println(&quot;This is Tow&quot; + i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class Three extends Two&#123;</div><div class="line">    static Five five = new Five();</div><div class="line"></div><div class="line">    &#123;</div><div class="line">        System.out.println(&quot;This is three code block&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Three(int i) &#123;</div><div class="line">        super(i);</div><div class="line">        System.out.println(&quot;This is three&quot; + i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Four&#123;</div><div class="line">    Six six = new Six();</div><div class="line">    Four(int i)&#123;</div><div class="line">        System.out.println(&quot;This is four&quot; +i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class Five&#123;</div><div class="line">    Five()&#123;</div><div class="line">        System.out.println(&quot;THis is five&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class Six&#123;</div><div class="line">    Six()&#123;</div><div class="line">        System.out.println(&quot;This is Six&quot; );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">This is Tow2</div><div class="line">This is four4</div><div class="line">This is Two <span class="keyword">static</span></div><div class="line">THis is five</div><div class="line">This is Tow3</div><div class="line">This is three code block</div><div class="line">This is three3</div></pre></td></tr></table></figure>
-<p>由此可见，在同一个 Java 文件里面允许有多个类，但只能有一个与文件名相同的 public 修饰的类，其他用 default。除此之外，我们还可以看出 代码各部分的初始化顺序，顺序是<code>父类的静态成员变量和静态代码块</code>-&gt;<code>子类的静态成员变量和静态代码块</code>-&gt;<code>父类的普通成员变量和代码块</code>-&gt;<code>父类的构造方法</code>-&gt;<code>子类的普通成员变量和代码块</code>-&gt;<code>子类的构造方法</code>。<br>另外，若子类会调用父类的构造方法，若父类构造方法中有参数且没有实现默认构造器，子类的构造方法中必须使用 <code>super(parameter)</code>方法调用父类的有参数的构造方法，且初始化在子类的普通成员变量和代码块前。</p>
+        <h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ul>
+<li>Spring Data JPA</li>
+<li>Mysql</li>
+</ul>
+<p>本文将会教大家如何将 mysql 和 Spring Boot 结合起来，且本教程使用 <strong>Gradle</strong> 构建整个项目。</p>
+<hr>
+<h3 id="Spring-Boot-配置"><a href="#Spring-Boot-配置" class="headerlink" title="Spring Boot 配置"></a>Spring Boot 配置</h3><ul>
+<li>在IDEA中新建一个 Spring 项目，在<code>build.gradle</code>中添加依赖如下</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">	compile(<span class="string">'org.springframework.boot:spring-boot-starter-data-jpa'</span>)</div><div class="line">	compile(<span class="string">'org.springframework.boot:spring-boot-starter-web'</span>)</div><div class="line"></div><div class="line">	<span class="comment">/* 数据库依赖 */</span></div><div class="line">	runtime group: <span class="string">'mysql'</span>, name: <span class="string">'mysql-connector-java'</span>, version: <span class="string">'5.1.35'</span></div><div class="line"></div><div class="line">	testCompile(<span class="string">'org.springframework.boot:spring-boot-starter-test'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>接下来在<code>src/main/resources</code>中的<code>application.properties</code>文件中配置 mysql 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">spring.datasource.driverClassName=com.mysql.jdbc.Driver</div><div class="line">spring.datasource.url=jdbc:mysql://localhost:3306/myblog</div><div class="line">spring.datasource.username=你的数据库用户名</div><div class="line">spring.datasource.password=你的数据库密码</div><div class="line">spring.jpa.database= mysql</div><div class="line">spring.jpa.hibernate.ddl-auto= create-drop</div></pre></td></tr></table></figure>
+<ul>
+<li>url需要写 mysql 的端口和 database 名</li>
+<li>username 和 password 分别写mysql 的用户名和密码</li>
+<li>ddl-auto 常用的有<code>create</code>, <code>create-drop</code>, <code>update</code><ul>
+<li>create：每次加载 hibernate 会删除上一次生成的表，然后根据 Entity 类 重新生成表。就算两次数据没有改变也会执行</li>
+<li>create-drop：每次加载 hibernate 时生成表，退出时删除表</li>
+<li>update：第一次加载 hibernate 生成表，以后加载时根据 Entity 自动更新表</li>
+<li>需要自己创建数据库，通过终端进入 mysql 输入<code>create database myblog</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建-repository"><a href="#创建-repository" class="headerlink" title="创建 repository"></a>创建 repository</h3><p>示例是一个 blog 管理系统，所以代码中应该有 article 对象如下：</p>
+<ul>
+<li>Article.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by weixianbin on 16/10/12.</div><div class="line"> */</div><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Article</span> </span>&#123;</div><div class="line">    <span class="meta">@Id</span></div><div class="line">    <span class="meta">@GeneratedValue</span>(strategy=GenerationType.AUTO)</div><div class="line">    <span class="comment">/* 顺序号 */</span></div><div class="line">    <span class="keyword">private</span> Long id;</div><div class="line">    <span class="meta">@Column</span>(name = <span class="string">"title"</span>)</div><div class="line">    <span class="comment">/* 文章名 */</span></div><div class="line">    <span class="keyword">private</span> String title;</div><div class="line">    <span class="meta">@Column</span>(name = <span class="string">"time"</span>)</div><div class="line">    <span class="comment">/* 写作时间*/</span></div><div class="line">    <span class="keyword">private</span> String time;</div><div class="line">    <span class="meta">@Column</span>(name = <span class="string">"tags"</span>)</div><div class="line">    <span class="comment">/* 标签 */</span></div><div class="line">    <span class="keyword">private</span>  String tags;</div><div class="line">    <span class="meta">@Column</span>(name = <span class="string">"info"</span>)</div><div class="line">    <span class="comment">/* 内容 */</span></div><div class="line">    <span class="keyword">private</span> String info;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">Article</span><span class="params">()</span> </span>&#123; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> title;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.title = title;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> time;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTime</span><span class="params">(String time)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.time = time;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> info;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setInfo</span><span class="params">(String info)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.info = info;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTags</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> tags;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTags</span><span class="params">(String tags)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.tags = tags;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>创建完实体类后还需要创建ArticleRepo接口，该接口继承自JpaRepository，具体代码如下：</p>
+<ul>
+<li>ArticleRepo.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by weixianbin on 16/10/12.</div><div class="line"> */</div><div class="line"><span class="meta">@Repository</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ArticleRepo</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">Article</span>,<span class="title">Long</span>&gt; </span>&#123;</div><div class="line">    <span class="function">List&lt;Article&gt; <span class="title">findAll</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">Article <span class="title">save</span><span class="params">(Article newArticle)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上代码中的注解将会帮我们自动与数据库做交互，我们可以不用写一句 SQL 语句。spring 将会自动帮我们完成建立 table 和对 database 的 insert，delete，update，find等操作。注解说明如下：</p>
+<ul>
+<li>@Entity：这个注解修饰的类与数据库的表对应，表的名字可由类名推断，也可以用@Table(name = “article”)具体说明。</li>
+<li>@Id 和 @GeneratedValue：@Id 注解说明这是主键，@GeneratedValue(strategy=GenerationType.AUTO) 说明这个是由数据库自动生成</li>
+<li>@Repository： 表示访问数据库并操作的数据库的接口，根据相关规则声明方法可以自动完成对数据库的操作，在 Controller 中使用@Autowired注解</li>
+</ul>
 
       
     </div>
@@ -500,7 +552,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://blog.makerwei.me/java初始化顺序/" title="Java文件中多个类的使用及初始化顺序">http://blog.makerwei.me/java初始化顺序/</a>
+      <a href="http://blog.makerwei.me/posts/61345/" title="Spring Boot 使用  Mysql">http://blog.makerwei.me/posts/61345/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -516,9 +568,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/spring-boot/" rel="tag"># spring boot</a>
           
-            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
           
         </div>
       
@@ -531,8 +585,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/spring-mysql/" rel="next" title="Spring Boot 使用  Mysql">
-                <i class="fa fa-chevron-left"></i> Spring Boot 使用  Mysql
+              <a href="/posts/56381/" rel="next" title="Spring Boot 在 IDEA 中使用 Lombok">
+                <i class="fa fa-chevron-left"></i> Spring Boot 在 IDEA 中使用 Lombok
               </a>
             
           </div>
@@ -541,8 +595,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java源码分析1/" rel="prev" title="Java容器 - ArrayList 源码分析">
-                Java容器 - ArrayList 源码分析 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/28106/" rel="prev" title="Java文件中多个类的使用及初始化顺序">
+                Java文件中多个类的使用及初始化顺序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -707,7 +761,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码验证"><span class="nav-number">1.</span> <span class="nav-text">代码验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点"><span class="nav-number">1.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot-配置"><span class="nav-number">2.</span> <span class="nav-text">Spring Boot 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-repository"><span class="nav-number">3.</span> <span class="nav-text">创建 repository</span></a></li></ol></div>
             
 
           </div>
@@ -715,13 +769,6 @@
       <!--/noindex-->
       
 
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
       
 
     </div>
@@ -772,6 +819,13 @@
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
     
 
   </div>

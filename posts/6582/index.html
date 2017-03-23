@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Latex,mac," />
+  <meta name="keywords" content="Java,源码分析,Vector," />
 
 
 
@@ -91,37 +91,19 @@
 
 
 
-<meta name="description" content="工欲善其事必先利其器
-
-这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex。
-Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行速度快，把它作为Latex的编辑器最好不过了
-安装步骤
-下载MacTex和skim并安装
-
-首先安装Package">
+<meta name="description" content="Vector 是 ArrayList 的线程安全版本，依靠synchronized实现，其他大多一样，本文主要说明两者不同的地方
+成员变量不同123456789101112131415161718192021222324252627282930313233public class Vector&amp;lt;E&amp;gt;    extends AbstractList&amp;lt;E&amp;gt;    impleme">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac上 Sublime Text 打造 Latex 中文环境">
-<meta property="og:url" content="http://blog.makerwei.me/latex/index.html">
+<meta property="og:title" content="Java容器 - Vector 源码分析">
+<meta property="og:url" content="http://blog.makerwei.me/posts/6582/index.html">
 <meta property="og:site_name" content="makerwei blog">
-<meta property="og:description" content="工欲善其事必先利其器
-
-这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex。
-Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行速度快，把它作为Latex的编辑器最好不过了
-安装步骤
-下载MacTex和skim并安装
-
-首先安装Package">
-<meta property="og:updated_time" content="2016-03-02T13:36:17.000Z">
+<meta property="og:description" content="Vector 是 ArrayList 的线程安全版本，依靠synchronized实现，其他大多一样，本文主要说明两者不同的地方
+成员变量不同123456789101112131415161718192021222324252627282930313233public class Vector&amp;lt;E&amp;gt;    extends AbstractList&amp;lt;E&amp;gt;    impleme">
+<meta property="og:updated_time" content="2017-03-23T05:50:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac上 Sublime Text 打造 Latex 中文环境">
-<meta name="twitter:description" content="工欲善其事必先利其器
-
-这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex。
-Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行速度快，把它作为Latex的编辑器最好不过了
-安装步骤
-下载MacTex和skim并安装
-
-首先安装Package">
+<meta name="twitter:title" content="Java容器 - Vector 源码分析">
+<meta name="twitter:description" content="Vector 是 ArrayList 的线程安全版本，依靠synchronized实现，其他大多一样，本文主要说明两者不同的地方
+成员变量不同123456789101112131415161718192021222324252627282930313233public class Vector&amp;lt;E&amp;gt;    extends AbstractList&amp;lt;E&amp;gt;    impleme">
 
 
 
@@ -130,7 +112,7 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -149,13 +131,13 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
 
 
 
-  <link rel="canonical" href="http://blog.makerwei.me/latex/"/>
+  <link rel="canonical" href="http://blog.makerwei.me/posts/6582/"/>
 
 
 
 
 
-  <title> Mac上 Sublime Text 打造 Latex 中文环境 | makerwei blog </title>
+  <title> Java容器 - Vector 源码分析 | makerwei blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -304,7 +286,7 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.makerwei.me/latex/">
+    <link itemprop="mainEntityOfPage" href="http://blog.makerwei.me/posts/6582/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小小小maker_wei">
@@ -325,7 +307,7 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
             
             
               
-                Mac上 Sublime Text 打造 Latex 中文环境
+                Java容器 - Vector 源码分析
               
             
           </h2>
@@ -340,8 +322,8 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-05T15:41:13+08:00">
-                2016-02-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-05T11:31:26+08:00">
+                2017-01-05
               </time>
             
 
@@ -363,8 +345,8 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/鼓捣/" itemprop="url" rel="index">
-                    <span itemprop="name">鼓捣</span>
+                  <a href="/categories/Java源码分析/" itemprop="url" rel="index">
+                    <span itemprop="name">Java源码分析</span>
                   </a>
                 </span>
 
@@ -382,8 +364,8 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/latex/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="latex/" itemprop="commentsCount"></span>
+                <a href="/posts/6582/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="posts/6582/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -391,7 +373,7 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
 
           
           
-             <span id="/latex/" class="leancloud_visitors" data-flag-title="Mac上 Sublime Text 打造 Latex 中文环境">
+             <span id="/posts/6582/" class="leancloud_visitors" data-flag-title="Java容器 - Vector 源码分析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -455,37 +437,15 @@ Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行�
       
 
       
-        <blockquote>
-<p>工欲善其事必先利其器</p>
-</blockquote>
-<p>这次参加数模美赛，发现写论文时用word时，不是那么得心应手，最后半个小时操作失误出现了一些小问题，不过总算弄好了。所以为了下次不在那么窘迫，同时也是本着瞎折腾的精神，弄起了Latex。</p>
-<p>Sublime text 是一款很优秀的编辑器，它不仅体积较小而且运行速度快，把它作为Latex的编辑器最好不过了</p>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
-<li><p>下载<a href="http://www.tug.org/mactex/" target="_blank" rel="external">MacTex</a>和<a href="http://skim-app.sourceforge.net" target="_blank" rel="external">skim</a>并安装</p>
-</li>
-<li><p>首先安装Package Control<br> 从菜单 <code>View - Show Console</code> 或者 <code>^ + ~</code> 快捷键，调出 console。在里面输入以下代码</p>
-<p> <em>Sublime Text 2</em></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib2,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &apos;wb&apos; ).write(by) if dh == h else None; print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h) if dh != h else &apos;Please restart Sublime Text to finish installation&apos;)</div></pre></td></tr></table></figure>
-<p> <em>Sublime Text 3</em></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</div></pre></td></tr></table></figure>
-</li>
-<li><p>在Sublime Text里用快捷键<code>Command+Shift+P</code>调出命令窗口，输入<code>Install Package</code>，之后选择<code>LaTexTools</code>安装</p>
-</li>
-<li><p>运行一下Skim，进入<code>选项——同步</code>，在<code>PDF-Tex</code>同步支持那里选择<code>自定义</code>，输入<code>/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl</code>，第二行不变。这样，当你在Sublime Text里修改tex文件时，Skim预览也会相应变更。</p>
-</li>
-<li><p>中文环境</p>
-<p> 打开终端，输入</p>
-<pre><code>sudo tlmgr update --self
-sudo tlmgr install latexm
-</code></pre><p> 然后在Sublime Text的<code>Preferences -- Package Settings —— LaTeXTools —— settings-User</code>重建配置文件,在<code>builder-settings下</code>面新增两项配置：</p>
-<pre><code>&quot;program&quot; : &quot;xelatex&quot;,
-&quot;command&quot; : [&quot;latexmk&quot;, &quot;-cd&quot;, &quot;-e&quot;, &quot;$pdflatex = &apos;xelatex -interaction=nonstopmode -synctex=1 %S %O&apos;&quot;, &quot;-f&quot;, &quot;-pdf&quot;],
-</code></pre></li>
-</ol>
-<p>另外注意之前应该有<code>&quot;builder&quot;: &quot;default&quot;</code>（或直接设置为空或”traditional”）。</p>
-<p>最后新建一个test.tex文件，输入以下测试代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">\documentclass&#123;article&#125;</div><div class="line">\usepackage&#123;fontspec, xunicode, xltxtra&#125;  </div><div class="line">\setmainfont&#123;Hiragino Sans GB&#125;  </div><div class="line"></div><div class="line">\title&#123;Title&#125;</div><div class="line">\author&#123;&#125;</div><div class="line"></div><div class="line">\begin&#123;document&#125;</div><div class="line"></div><div class="line">\maketitle&#123;&#125;</div><div class="line"></div><div class="line">\section&#123;Introduction&#125;</div><div class="line"></div><div class="line">This is where you will write your content. 在这里写上内容。</div><div class="line"></div><div class="line">\end&#123;document&#125;</div></pre></td></tr></table></figure>
-<p>然后<code>command+B</code>编译，若没出错，就会出现pdf文档</p>
+        <p>Vector 是 ArrayList 的线程安全版本，依靠<code>synchronized</code>实现，其他大多一样，本文主要说明两者不同的地方</p>
+<h2 id="成员变量不同"><a href="#成员变量不同" class="headerlink" title="成员变量不同"></a>成员变量不同</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Vector</span>&lt;<span class="title">E</span>&gt;</span></div><div class="line">    <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</div><div class="line">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The array buffer into which the components of the vector are</div><div class="line">     * stored. The capacity of the vector is the length of this array buffer,</div><div class="line">     * and is at least large enough to contain all the vector's elements.</div><div class="line">     *</div><div class="line">     * &lt;p&gt;Any array elements following the last element in the Vector are null.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@serial</span></div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> Object[] elementData;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The number of valid components in this &#123;<span class="doctag">@code</span> Vector&#125; object.</div><div class="line">     * Components &#123;<span class="doctag">@code</span> elementData[0]&#125; through</div><div class="line">     * &#123;<span class="doctag">@code</span> elementData[elementCount-1]&#125; are the actual items.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@serial</span></div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> elementCount;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * The amount by which the capacity of the vector is automatically</div><div class="line">     * incremented when its size becomes greater than its capacity.  If</div><div class="line">     * the capacity increment is less than or equal to zero, the capacity</div><div class="line">     * of the vector is doubled each time it needs to grow.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@serial</span></div><div class="line">     */</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> capacityIncrement;</div></pre></td></tr></table></figure>
+<p>可以看出 Vector 多了一个<code>capacityIncrement</code>变量，暂且翻译为<code>容量增量</code></p>
+<h2 id="构造方法不同"><a href="#构造方法不同" class="headerlink" title="构造方法不同"></a>构造方法不同</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">(<span class="keyword">int</span> initialCapacity, <span class="keyword">int</span> capacityIncrement)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal Capacity: "</span>+</div><div class="line">                                               initialCapacity);</div><div class="line">        <span class="keyword">this</span>.elementData = <span class="keyword">new</span> Object[initialCapacity];</div><div class="line">        <span class="keyword">this</span>.capacityIncrement = capacityIncrement;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Constructs an empty vector with the specified initial capacity and</div><div class="line">     * with its capacity increment equal to zero.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span>   initialCapacity   the initial capacity of the vector</div><div class="line">     * <span class="doctag">@throws</span> IllegalArgumentException if the specified initial capacity</div><div class="line">     *         is negative</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(initialCapacity, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Constructs an empty vector so that its internal data array</div><div class="line">     * has size &#123;<span class="doctag">@code</span> 10&#125; and its standard capacity increment is</div><div class="line">     * zero.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vector</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">10</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>初始化调用默认构造方法时，其会默认容量为<code>10</code>然后调用一个参数的构造方法，当调用一个参数的构造方法时默认容量增量为<code>0</code></p>
+<h2 id="添加方法"><a href="#添加方法" class="headerlink" title="添加方法"></a>添加方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</div><div class="line">        modCount++;</div><div class="line">        ensureCapacityHelper(elementCount + <span class="number">1</span>);</div><div class="line">        elementData[elementCount++] = e;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>除了多了个<code>synchronized</code>关键字其它基本一样</p>
+<h2 id="扩容方法有差异"><a href="#扩容方法有差异" class="headerlink" title="扩容方法有差异"></a>扩容方法有差异</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (minCapacity &gt; <span class="number">0</span>) &#123;</div><div class="line">           modCount++;</div><div class="line">           ensureCapacityHelper(minCapacity);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">       <span class="comment">/*这里跟 ArrayList 一样*/</span></div><div class="line">       <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityHelper</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</div><div class="line">       <span class="comment">// overflow-conscious code</span></div><div class="line">       <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</div><div class="line">           grow(minCapacity);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="comment">/*数组最大容量*/</span></div><div class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_ARRAY_SIZE = Integer.MAX_VALUE - <span class="number">8</span>;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</div><div class="line">       <span class="comment">// overflow-conscious code</span></div><div class="line">       <span class="comment">/*原来数组的容量*/</span></div><div class="line">       <span class="keyword">int</span> oldCapacity = elementData.length;</div><div class="line">       <span class="comment">/*若容量增量大于0，则新容量为旧容量加上容量增量，否则新容量为旧容量的2倍*/</span></div><div class="line">       <span class="keyword">int</span> newCapacity = oldCapacity + ((capacityIncrement &gt; <span class="number">0</span>) ?</div><div class="line">                                        capacityIncrement : oldCapacity);</div><div class="line">        <span class="comment">/*其它判断跟 ArrayList 一致*/</span>                   </div><div class="line">       <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</div><div class="line">           newCapacity = minCapacity;</div><div class="line">       <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</div><div class="line">           newCapacity = hugeCapacity(minCapacity);</div><div class="line">       elementData = Arrays.copyOf(elementData, newCapacity);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hugeCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (minCapacity &lt; <span class="number">0</span>) <span class="comment">// overflow</span></div><div class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> OutOfMemoryError();</div><div class="line">       <span class="keyword">return</span> (minCapacity &gt; MAX_ARRAY_SIZE) ?</div><div class="line">           Integer.MAX_VALUE :</div><div class="line">           MAX_ARRAY_SIZE;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Vector依靠<code>synchronized</code>关键字实现线程安全的  ArrayList，但是这样会造成效率比较低。默认容量就为10，容量增量为0.数组扩容时，容量增量大于0则新容量为旧容量与容量增量的和，否则为旧容量大小的两倍。</p>
 
       
     </div>
@@ -535,7 +495,7 @@ sudo tlmgr install latexm
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://blog.makerwei.me/latex/" title="Mac上 Sublime Text 打造 Latex 中文环境">http://blog.makerwei.me/latex/</a>
+      <a href="http://blog.makerwei.me/posts/6582/" title="Java容器 - Vector 源码分析">http://blog.makerwei.me/posts/6582/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -551,9 +511,11 @@ sudo tlmgr install latexm
       
         <div class="post-tags">
           
-            <a href="/tags/Latex/" rel="tag"># Latex</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/mac/" rel="tag"># mac</a>
+            <a href="/tags/源码分析/" rel="tag"># 源码分析</a>
+          
+            <a href="/tags/Vector/" rel="tag"># Vector</a>
           
         </div>
       
@@ -566,8 +528,8 @@ sudo tlmgr install latexm
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo/" rel="next" title="Hexo+github pages/Coding pages搭建自己的blog">
-                <i class="fa fa-chevron-left"></i> Hexo+github pages/Coding pages搭建自己的blog
+              <a href="/posts/63081/" rel="next" title="Java容器 - ArrayList 源码分析">
+                <i class="fa fa-chevron-left"></i> Java容器 - ArrayList 源码分析
               </a>
             
           </div>
@@ -576,8 +538,8 @@ sudo tlmgr install latexm
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/gson/" rel="prev" title="Android中Gson解析json数据">
-                Android中Gson解析json数据 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/33582/" rel="prev" title="MyBatis 使用指南（1）">
+                MyBatis 使用指南（1） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -742,7 +704,7 @@ sudo tlmgr install latexm
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">1.</span> <span class="nav-text">安装步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#成员变量不同"><span class="nav-number">1.</span> <span class="nav-text">成员变量不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造方法不同"><span class="nav-number">2.</span> <span class="nav-text">构造方法不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加方法"><span class="nav-number">3.</span> <span class="nav-text">添加方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩容方法有差异"><span class="nav-number">4.</span> <span class="nav-text">扩容方法有差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -750,13 +712,6 @@ sudo tlmgr install latexm
       <!--/noindex-->
       
 
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
       
 
     </div>
@@ -807,6 +762,13 @@ sudo tlmgr install latexm
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
     
 
   </div>

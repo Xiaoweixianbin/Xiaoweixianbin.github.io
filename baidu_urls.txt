@@ -1,12 +1,12 @@
-http://blog.makerwei.me/myBabis_1/
-http://blog.makerwei.me/Java源码分析2/
-http://blog.makerwei.me/java源码分析1/
-http://blog.makerwei.me/java初始化顺序/
-http://blog.makerwei.me/spring-mysql/
-http://blog.makerwei.me/springboot集成lombok /
-http://blog.makerwei.me/task/
-http://blog.makerwei.me/OkHttp/
-http://blog.makerwei.me/gson/
-http://blog.makerwei.me/latex/
-http://blog.makerwei.me/hexo/
-http://blog.makerwei.me/pelican/
+http://blog.makerwei.me/posts/33582/
+http://blog.makerwei.me/posts/6582/
+http://blog.makerwei.me/posts/63081/
+http://blog.makerwei.me/posts/28106/
+http://blog.makerwei.me/posts/61345/
+http://blog.makerwei.me/posts/56381/
+http://blog.makerwei.me/posts/18614/
+http://blog.makerwei.me/posts/23698/
+http://blog.makerwei.me/posts/35060/
+http://blog.makerwei.me/posts/29855/
+http://blog.makerwei.me/posts/22949/
+http://blog.makerwei.me/posts/47021/
