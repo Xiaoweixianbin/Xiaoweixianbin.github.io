@@ -17,8 +17,8 @@
   
   <entry>
     <title>MyBatis 使用指南（1）</title>
-    <link href="http://blog.makerwei.me/2017/02/03/myBabis_1/"/>
-    <id>http://blog.makerwei.me/2017/02/03/myBabis_1/</id>
+    <link href="http://blog.makerwei.me/myBabis_1/"/>
+    <id>http://blog.makerwei.me/myBabis_1/</id>
     <published>2017-02-03T05:43:29.000Z</published>
     <updated>2017-03-23T04:50:50.000Z</updated>
     
@@ -83,8 +83,8 @@
   
   <entry>
     <title>Java容器 - Vector 源码分析</title>
-    <link href="http://blog.makerwei.me/2017/01/05/Java%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%902/"/>
-    <id>http://blog.makerwei.me/2017/01/05/Java源码分析2/</id>
+    <link href="http://blog.makerwei.me/Java%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%902/"/>
+    <id>http://blog.makerwei.me/Java源码分析2/</id>
     <published>2017-01-05T03:31:26.000Z</published>
     <updated>2017-03-23T04:48:38.000Z</updated>
     
@@ -119,8 +119,8 @@
   
   <entry>
     <title>Java容器 - ArrayList 源码分析</title>
-    <link href="http://blog.makerwei.me/2017/01/03/java%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%901/"/>
-    <id>http://blog.makerwei.me/2017/01/03/java源码分析1/</id>
+    <link href="http://blog.makerwei.me/java%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%901/"/>
+    <id>http://blog.makerwei.me/java源码分析1/</id>
     <published>2017-01-03T04:41:13.000Z</published>
     <updated>2017-03-23T04:48:37.000Z</updated>
     
@@ -156,8 +156,8 @@
   
   <entry>
     <title>Java文件中多个类的使用及初始化顺序</title>
-    <link href="http://blog.makerwei.me/2017/01/02/java%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
-    <id>http://blog.makerwei.me/2017/01/02/java初始化顺序/</id>
+    <link href="http://blog.makerwei.me/java%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
+    <id>http://blog.makerwei.me/java初始化顺序/</id>
     <published>2017-01-02T07:41:13.000Z</published>
     <updated>2017-03-23T04:48:39.000Z</updated>
     
@@ -192,8 +192,8 @@
   
   <entry>
     <title>Spring Boot 使用  Mysql</title>
-    <link href="http://blog.makerwei.me/2016/11/26/spring-mysql/"/>
-    <id>http://blog.makerwei.me/2016/11/26/spring-mysql/</id>
+    <link href="http://blog.makerwei.me/spring-mysql/"/>
+    <id>http://blog.makerwei.me/spring-mysql/</id>
     <published>2016-11-26T14:00:28.000Z</published>
     <updated>2017-03-23T04:48:42.000Z</updated>
     
@@ -264,8 +264,8 @@
   
   <entry>
     <title>Spring Boot 在 IDEA 中使用 Lombok</title>
-    <link href="http://blog.makerwei.me/2016/11/03/springboot%E9%9B%86%E6%88%90lombok%20/"/>
-    <id>http://blog.makerwei.me/2016/11/03/springboot集成lombok /</id>
+    <link href="http://blog.makerwei.me/springboot%E9%9B%86%E6%88%90lombok%20/"/>
+    <id>http://blog.makerwei.me/springboot集成lombok /</id>
     <published>2016-11-03T01:23:13.000Z</published>
     <updated>2017-03-23T04:48:42.000Z</updated>
     
@@ -325,8 +325,8 @@
   
   <entry>
     <title>Android AsyncTask 使用总结</title>
-    <link href="http://blog.makerwei.me/2016/02/26/task/"/>
-    <id>http://blog.makerwei.me/2016/02/26/task/</id>
+    <link href="http://blog.makerwei.me/task/"/>
+    <id>http://blog.makerwei.me/task/</id>
     <published>2016-02-26T10:39:19.000Z</published>
     <updated>2016-03-14T10:41:01.000Z</updated>
     
@@ -387,8 +387,8 @@
   
   <entry>
     <title>OkHttp基本使用</title>
-    <link href="http://blog.makerwei.me/2016/02/26/OkHttp/"/>
-    <id>http://blog.makerwei.me/2016/02/26/OkHttp/</id>
+    <link href="http://blog.makerwei.me/OkHttp/"/>
+    <id>http://blog.makerwei.me/OkHttp/</id>
     <published>2016-02-26T08:28:19.000Z</published>
     <updated>2017-03-23T04:48:43.000Z</updated>
     
@@ -425,8 +425,8 @@
   
   <entry>
     <title>Android中Gson解析json数据</title>
-    <link href="http://blog.makerwei.me/2016/02/16/gson/"/>
-    <id>http://blog.makerwei.me/2016/02/16/gson/</id>
+    <link href="http://blog.makerwei.me/gson/"/>
+    <id>http://blog.makerwei.me/gson/</id>
     <published>2016-02-16T12:27:37.000Z</published>
     <updated>2016-03-05T12:39:36.000Z</updated>
     
@@ -473,8 +473,8 @@
   
   <entry>
     <title>Mac上 Sublime Text 打造 Latex 中文环境</title>
-    <link href="http://blog.makerwei.me/2016/02/05/latex/"/>
-    <id>http://blog.makerwei.me/2016/02/05/latex/</id>
+    <link href="http://blog.makerwei.me/latex/"/>
+    <id>http://blog.makerwei.me/latex/</id>
     <published>2016-02-05T07:41:13.000Z</published>
     <updated>2016-03-02T13:36:17.000Z</updated>
     
@@ -531,8 +531,8 @@ sudo tlmgr install latexm
   
   <entry>
     <title>Hexo+github pages/Coding pages搭建自己的blog</title>
-    <link href="http://blog.makerwei.me/2016/02/03/hexo/"/>
-    <id>http://blog.makerwei.me/2016/02/03/hexo/</id>
+    <link href="http://blog.makerwei.me/hexo/"/>
+    <id>http://blog.makerwei.me/hexo/</id>
     <published>2016-02-03T13:13:25.000Z</published>
     <updated>2016-11-27T04:15:15.000Z</updated>
     
@@ -570,8 +570,8 @@ sudo tlmgr install latexm
   
   <entry>
     <title>Pelican + Github Pages 搭建自己的博客</title>
-    <link href="http://blog.makerwei.me/2016/01/02/pelican/"/>
-    <id>http://blog.makerwei.me/2016/01/02/pelican/</id>
+    <link href="http://blog.makerwei.me/pelican/"/>
+    <id>http://blog.makerwei.me/pelican/</id>
     <published>2016-01-02T08:13:08.000Z</published>
     <updated>2017-03-23T04:48:41.000Z</updated>
     

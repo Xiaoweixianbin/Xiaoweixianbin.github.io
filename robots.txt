@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Disallow: /lib/   
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /fancybox/
+Sitemap: http://blog.makerwei.me/sitemap.xml
+Sitemap: http://blog.makerwei.me/baidusitemap.xml
+
