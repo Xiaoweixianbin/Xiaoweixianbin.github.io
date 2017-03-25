@@ -174,28 +174,6 @@
 
     
   <url>
-    <loc>http://blog.makerwei.me/posts/22949/</loc>
-    <lastmod>2017-03-23T08:11:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo+github pages/Coding pages搭建自己的blog</title>
-        <pubTime>2016-02-03T13:13:25.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>github pages</tag>
-         
-         
-           
-             
-              <breadCrumb title="鼓捣" url="http://blog.makerwei.me/categories/%E9%BC%93%E6%8D%A3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://blog.makerwei.me/posts/35060/</loc>
     <lastmod>2017-03-23T08:11:44.000Z</lastmod>
     <data>
@@ -213,6 +191,28 @@
            
              
               <breadCrumb title="android学习笔记" url="http://blog.makerwei.me/categories/android%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.makerwei.me/posts/22949/</loc>
+    <lastmod>2017-03-23T08:11:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo+github pages/Coding pages搭建自己的blog</title>
+        <pubTime>2016-02-03T13:13:25.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>github pages</tag>
+         
+         
+           
+             
+              <breadCrumb title="鼓捣" url="http://blog.makerwei.me/categories/%E9%BC%93%E6%8D%A3/"/>
           
         </display>
     </data>
